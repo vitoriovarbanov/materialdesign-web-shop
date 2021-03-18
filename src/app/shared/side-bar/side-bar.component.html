@@ -1,0 +1,30 @@
+<!-- <mat-toolbar color="primary" class="example-container">
+  <mat-toolbar-row>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a routerLink="auth/login">Login</a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a routerLink="auth/register">Register</a>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+
+<mat-toolbar color="accent">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon color='primary'>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <a routerLink='auth/login'><mat-icon color="primary">favorite</mat-icon></a>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <a routerLink='auth/register'><mat-icon color="primary">share</mat-icon></a>
+  </button>
+  <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a>
+</mat-toolbar>

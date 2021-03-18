@@ -1,0 +1,10 @@
+.example-container {
+  position: fixed;
+  max-width: 200px;
+  height: 100vh;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
