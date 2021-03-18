@@ -1,4 +1,4 @@
-import { Component, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 export interface Tile {
   color: string;
@@ -7,13 +7,18 @@ export interface Tile {
   text: string;
 }
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
 
-export class AppComponent {
+@Component({
+  selector: 'app-top-view',
+  templateUrl: './top-view.component.html',
+  styleUrls: ['./top-view.component.css']
+})
+export class TopViewComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 2, color: '#00BFA5'},

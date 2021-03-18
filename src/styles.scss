@@ -7,5 +7,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import './theme.scss';
 
 .accent-color {
-  color: mat-color($accent) !important;
+  color: mat-color($my-custom-primary) !important;
 }
