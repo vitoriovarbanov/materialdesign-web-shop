@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { TopViewComponent } from './top-view/top-view.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { HomeView2Component } from './home-view2/home-view2.component';
 
 
 @NgModule({
-  declarations: [TopViewComponent],
+  declarations: [TopViewComponent, HomeView2Component],
   imports: [
     CommonModule,
     HomeRoutingModule,

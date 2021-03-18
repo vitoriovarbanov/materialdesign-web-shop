@@ -21,7 +21,7 @@ export class TopViewComponent implements OnInit {
   }
 
   tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 2, color: '#00BFA5'},
+    {text: 'One', cols: 1, rows: 2, color: '#64DD17'},
     {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
   ];
