@@ -1,11 +1,5 @@
-import { Component, ViewChild, HostListener } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, OnInit } from '@angular/core';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
 
 @Component({
   selector: 'app-root',
@@ -13,12 +7,10 @@ export interface Tile {
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  constructor(private elementRef: ElementRef) {}
 
-  tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 2, color: '#00BFA5'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-  ];
-
+  ngAfterViewInit() {
+    //this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'wheat';
+  }
 }

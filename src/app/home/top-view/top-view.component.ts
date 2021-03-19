@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 export interface Tile {
   color: string;
@@ -14,16 +14,34 @@ export interface Tile {
   styleUrls: ['./top-view.component.css']
 })
 export class TopViewComponent implements OnInit {
+  scrHeight: any;
+  scrWidth: any;
+  tiles: Tile[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.scrHeight = window.innerHeight;
+    this.scrWidth = window.innerWidth;
+    if(this.scrWidth<900){
+      this.tiles = [
+        { text: 'One', cols: 2, rows: 3, color: '#64DD17' },
+        { text: 'Two', cols: 2, rows: 3, color: 'lightgreen' },
+        { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+      ]
+    }else{
+      this.tiles = [
+        { text: 'One', cols: 1, rows: 3, color: '#64DD17' },
+        { text: 'Two', cols: 1, rows: 3, color: 'lightgreen' },
+        /* { text: 'Three', cols: 1, rows: 1, color: 'lightpink' }, */
+      ];
+    }
+  }
+  constructor() {
+    this.getScreenSize()
   }
 
-  tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 2, color: '#64DD17'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-  ];
+  ngOnInit(): void {
+
+  }
 
 }
