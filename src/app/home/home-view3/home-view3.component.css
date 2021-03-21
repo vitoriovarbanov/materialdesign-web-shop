@@ -10,6 +10,39 @@
 .showcase-container-left{
   background-color: #00796B;
   width: 50%;
+  display: flex;
+  position: relative;
+}
+
+.comments-container{
+  width: 85%;
+  min-width: 300px;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visible-content{
+
+}
+
+.hidden-content{
+  display: none;
+}
+
+.pagination{
+  background-color: red;
+  width: 15%;
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pagination button{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .showcase-container-right{

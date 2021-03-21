@@ -1,10 +1,22 @@
 <div class='showcase-container'>
   <div class="showcase-container-left">
-    <mat-tab-group>
-      <mat-tab label="-"> Content 1 </mat-tab>
-      <mat-tab label="-"> Content 2 </mat-tab>
-      <mat-tab label="-"> Content 3 </mat-tab>
-    </mat-tab-group>
+    <div class="comments-container">
+      <p id='1' class="visible-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Modi excepturi animi quam in saepe, ad dolore iure. Modi hic dicta ut asperiores dolore voluptatum, facilis ex accusantium maxime! Corporis, amet!</p>
+      <p id='2' class="hidden-content">Ltur adipisicing elit.
+          Modi excepturi animi quam in saepe, ad dolore iure. Modi hic dicta ut asperiores dolore voluptatum, facilis ex accusantium maxime! Corporis, amet!</p>
+      <p id='3' class="hidden-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Modi excepturi animccusantium maxime! Corporis, amet!</p>
+            <!-- <div (click)="status=!status"
+    [ngClass]="status ? 'visible-content' : 'hidden-content' ">
+     Some content
+</div> -->
+    </div>
+    <div class="pagination">
+      <button (click)='displayComment(1)' id='1'>One</button>
+      <button (click)='displayComment(2)' id='2'>Two</button>
+      <button (click)='displayComment(3)' id='3'>Three</button>
+    </div>
   </div>
   <div class="showcase-container-right">
     <h2 class="mat-display-1">WE VALUE THE OPINION OF OUR CLIENTS</h2>

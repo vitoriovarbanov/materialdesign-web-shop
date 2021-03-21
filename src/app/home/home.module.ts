@@ -16,7 +16,7 @@ import { HomeView3Component } from './home-view3/home-view3.component';
     AngularMaterialModule
   ],
   exports: [
-    TopViewComponent
+    TopViewComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
