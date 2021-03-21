@@ -3,6 +3,8 @@
 } */
 
 .h1-text{
+  line-height: 50px;
+  font-style: italic;
   margin-bottom: 0;
   font-weight: bold;
   padding-top: 10px;
@@ -14,7 +16,7 @@
   background-color: #00796B;
   height: 33%;
   width: 60%;
-  border-radius: 25px;
+  border-radius: 35px 0px 35px 0px;
   margin-left: 50px;
 }
 
@@ -35,7 +37,19 @@
   height: 100%;
 }
 
-.mat-grid-tile img{
+.img-header-container{
+  width: 100%;
+}
+
+.img-header-container img{
+  clip-path: circle(200px);
+  width: 100%;
+  height: 400px;
+}
+
+img{
+  width: 800px;
+  border-radius: 35px 0px 35px 0px;
   /* width: 100%;
   height: 100%; */
 }
@@ -56,5 +70,10 @@
   .header-p{
     margin-left: 50px;
     height: 250px;
+  }
+  img{
+    border-radius: 25px;
+    /* width: 100%;
+    height: 100%; */
   }
 }
