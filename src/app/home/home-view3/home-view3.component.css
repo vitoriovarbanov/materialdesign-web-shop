@@ -8,23 +8,31 @@
 }
 
 .showcase-container-left{
+  border-radius: 0;
   background-color: #00796B;
+  border-radius: 0px 45px 45px 0;
+  color: white;
   width: 50%;
   display: flex;
   position: relative;
 }
 
 .comments-container{
+  border-style: 10px solid red;
   width: 85%;
   min-width: 300px;
-  background-color: yellow;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .visible-content{
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .hidden-content{
@@ -32,23 +40,46 @@
 }
 
 .pagination{
-  background-color: red;
+  background-color: #00796B;
+  border-radius: 45px 45px 45px 45px;
   width: 15%;
   min-width: 50px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
-.pagination button{
-  margin-top: 20px;
-  margin-bottom: 20px;
+.pagination span{
+  cursor: pointer;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .showcase-container-right{
+  padding-left: 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: white;
   width: 50%;
+}
+
+
+@media screen and (max-width: 992px) {
+  .showcase-container{
+    flex-direction: column;
+  }
+  .showcase-container-left{
+    width: 100%;
+    order: 1;
+    border-radius: 45px 45px 45px 45px;
+  }
+  .showcase-container-right{
+    width: 100%;
+    order: 0;
+  }
+  .pagination{
+    border-radius: 0 45px 45px 0;  }
+
 }

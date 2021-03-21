@@ -6,7 +6,6 @@ import { Component, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./home-view3.component.css']
 })
 export class HomeView3Component implements OnInit {
-  status = true
 
   constructor(private elRef: ElementRef) { }
 
@@ -14,10 +13,8 @@ export class HomeView3Component implements OnInit {
   }
 
   displayComment(e) {
-    const pElements = Array.from(this.elRef.nativeElement.querySelectorAll('p'));
-    for (const p of pElements) {
-      console.log(p['id'])
-      console.log(e)
+    const elements = Array.from(this.elRef.nativeElement.querySelectorAll('section'));
+    for (const p of elements) {
       if (Number(p['id']) === e) {
         p['className'] = 'visible-content'
       }else{
