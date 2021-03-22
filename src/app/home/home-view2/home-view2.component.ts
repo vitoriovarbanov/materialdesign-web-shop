@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeView2Component implements OnInit {
   displayedViews = [
-    { src: '../../../assets/health1.jpg'},
-    { src: '../../../assets/health2.jpg'},
-    { src: '../../../assets/health3.jpg'},
-    { src: '../../../assets/health4.jpg'},
-    { src: '../../../assets/health5.jpg'},
+    { src: '../../../assets/health1.jpg', text: 'Lorem Ipsum Text Nice'},
+    { src: '../../../assets/health2.jpg', text: 'Lorem Ipsum Text Nice'},
+    { src: '../../../assets/health3.jpg', text: 'Lorem Ipsum Text Nice'},
+    { src: '../../../assets/health4.jpg', text: 'Lorem Ipsum Text Nice'},
+    { src: '../../../assets/health5.jpg', text: 'Lorem Ipsum Text Nice'},
   ]
 
   constructor() { }
