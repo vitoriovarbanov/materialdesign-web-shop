@@ -1,16 +1,25 @@
 .showcase-container{
-  margin-top: 25px;
+  margin-top: 55px;
   background-color: white;
   width: 100%;
-  height: 75vh;
+  height: 48vh;
   position: relative;
   display: flex;
+}
+
+p{
+  font-style: italic;
+}
+
+svg{
+  position: absolute;
+  top: 0;
 }
 
 .showcase-container-left{
   border-radius: 0;
   background-color: #00796B;
-  border-radius: 0px 45px 45px 0;
+  border-radius: 0px 45px 0px 0;
   color: white;
   width: 50%;
   display: flex;
@@ -23,7 +32,8 @@
   min-width: 300px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  margin-bottom: 20px;
 }
 
 .visible-content{
@@ -48,6 +58,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-top: 150px;
 }
 
 .pagination span{
@@ -73,6 +84,10 @@
   text-align: center;
 }
 
+.text-container-right span{
+  margin-left: 400px;
+}
+
 @media screen and (max-width: 992px) {
   .showcase-container{
     flex-direction: column;
@@ -91,5 +106,8 @@
   .pagination{
     border-radius: 0;
    }
+  svg{
+    display: none;
+  }
 
 }

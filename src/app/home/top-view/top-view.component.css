@@ -12,6 +12,10 @@ h1{
   margin-bottom: 10px;
 }
 
+svg{
+  width: 80%;
+}
+
 .left-section{
   /* border: 1px solid red; */
   width: 33%;
@@ -67,6 +71,10 @@ h1{
  right: 20px;
  top: 200px;
 }
+
+.social-network-tab span{
+  padding-top: 10px;
+ }
 
 @media screen and (min-width: 1600px) {
   .transparent-container{
@@ -144,6 +152,23 @@ h1{
   .image2 {
     width: 160px;
     height: 70%;
+  }
+}
+
+@media screen and (max-height: 640px) and (max-width: 830px) {
+   h1{
+    font-size: 1.5em;
+  }
+  .left-section{
+    width: 100%;
+  }
+  .image1 {
+    width: 157px;
+    height: 55%;
+  }
+  .image2 {
+    width: 157px;
+    height: 55%;
   }
 }
 
