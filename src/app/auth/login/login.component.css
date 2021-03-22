@@ -1,1 +1,13 @@
+.background-container{
+  background-image: url(../../../assets/login.svg);
+  height: 93.2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.form-container{
+  width: 500px;
+  height: 600px;
+  border: 1px solid red;
+}
