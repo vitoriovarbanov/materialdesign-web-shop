@@ -1,6 +1,11 @@
 <div class="welcome-section">
-  <mat-grid-list cols="2" rowHeight="fit" role="list">
-    <mat-grid-tile style="border-radius: 20px;" [colspan]="tiles[0].cols" [rowspan]="tiles[0].rows">
+  <section class="left-section">
+    <div class="header-container">
+      <h1 style="font-family: 'Bree Serif', serif;" class="mat-display-3">ALMOST BEFORE WE KNEW IT</h1>
+    </div>
+  </section>
+  <!-- <mat-grid-list cols="2" rowHeight="fit" role="list">
+    <mat-grid-tile [colspan]="tiles[0].cols" [rowspan]="tiles[0].rows">
       <div class="container">
         <div class="header-p">
           <h1 class="h1-text mat-headline">Web Health Store</h1>
@@ -15,9 +20,11 @@
         </div>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="tiles[1].cols" [rowspan]="tiles[1].rows"><img src="../../../assets/hometo.jpg"></mat-grid-tile>
-    <!-- <mat-grid-tile [colspan]="tiles[2].cols" [rowspan]="tiles[2].rows" [style.background]="tiles[0].color" style="border-radius: 25px;">3</mat-grid-tile> -->
-  </mat-grid-list>
+    <div class="container">
+      <mat-grid-tile [colspan]="tiles[1].cols" [rowspan]="tiles[1].rows"><img src="../../../assets/hometo.jpg"></mat-grid-tile>
+    </div>
+  </mat-grid-list> -->
+
 </div>
 <app-home-view2></app-home-view2>
 <app-home-view3></app-home-view3>

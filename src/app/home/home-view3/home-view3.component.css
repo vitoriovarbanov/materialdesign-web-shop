@@ -65,6 +65,13 @@
   width: 50%;
 }
 
+.text-container-right{
+  width: 90%;
+}
+
+.text-container-right h2{
+  text-align: center;
+}
 
 @media screen and (max-width: 992px) {
   .showcase-container{
@@ -73,13 +80,16 @@
   .showcase-container-left{
     width: 100%;
     order: 1;
-    border-radius: 45px 45px 45px 45px;
+    border-radius: 0;
   }
   .showcase-container-right{
     width: 100%;
     order: 0;
+    margin-bottom: -30px;
+    padding-left: 0;
   }
   .pagination{
-    border-radius: 0 45px 45px 0;  }
+    border-radius: 0;
+   }
 
 }
