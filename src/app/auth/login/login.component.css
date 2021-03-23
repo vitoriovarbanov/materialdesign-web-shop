@@ -25,6 +25,9 @@ h2{
   font-size: 1.3em;
   color: white;
 }
+.mat-label{
+  color: #64DD17;
+}
 
 .login-button{
   width: 100%;
