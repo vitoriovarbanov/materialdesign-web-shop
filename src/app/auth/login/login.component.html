@@ -8,7 +8,7 @@
       <input matInput formControlName='email'>
       <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
         <span class="err-msg" *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
-        <span class="err-msg"  *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+        <span class="err-msg" *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
