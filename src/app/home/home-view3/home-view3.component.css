@@ -114,5 +114,14 @@ svg{
   .pagination{
     margin-top: 0px;
   }
-
 }
+
+@media screen and (max-height: 812px) {
+  svg{
+    display: none;
+  }
+  .pagination{
+    margin-top: 0px;
+  }
+}
+

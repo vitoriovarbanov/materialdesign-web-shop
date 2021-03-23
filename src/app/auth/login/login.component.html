@@ -1,19 +1,17 @@
 <div class="background-container">
+  <h2>Web Health Store</h2>
   <div class='form-container'>
     <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
+      <mat-label style="color: #64DD17;">Email</mat-label>
       <input matInput>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Select</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
-      </mat-select>
+      <mat-label style="color: #64DD17;">Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Textarea</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
+    <button class="login-button">Continue</button>
   </div>
 </div>

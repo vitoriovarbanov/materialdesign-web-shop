@@ -1,23 +1,7 @@
-@keyframes slidingstep1 {
-	0%   { left: -100px; opacity:0;}
-	5%   { left: -75px; opacity:0.2;}
-	10%   { left: -50px; opacity:0.4;}
-	15%   { left: -25px; opacity:0.6;}
-	20%  { left: 0px;opacity:1; }
-	100% { left: 0px;opacity:1; }
-}
-#an {
-	animation-name: slidingstep1;
-	animation-duration: 7s;
-	/* animation-iteration-count: infinite; */
-	animation-direction: normal;
-	animation-timing-function: linear;
-	animation-fill-mode: forwards;
-}
-
 .welcome-section{
   color: white;
-  height: 93.5vh;
+  min-width: 98vw;
+  min-height: 93.5vh;
   background-color: #00796B;
   display: flex;
   flex-direction: row;
@@ -35,6 +19,7 @@ svg{
 
 .left-section{
   /* border: 1px solid red; */
+  padding-top: 0px;
   width: 33%;
   display: flex;
   height: 100%;
@@ -49,6 +34,7 @@ svg{
 
 .right-section{
   /* border: 1px solid yellow; */
+  padding-top: 0px;
   width: 67%;
   height: 100%;
 }
@@ -103,10 +89,23 @@ svg{
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1400px) {
   .transparent-container{
-    width: 320px;
-    height: 440px;
+    width: 310px;
+    height: 430px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .left-section{
+    padding-top: 0px;
+  }
+  .right-section{
+    padding-top: 0;
+  }
+  .transparent-container{
+    width: 300px;
+    height: 420px;
   }
 }
 
@@ -288,4 +287,23 @@ svg{
    right: 10px;
    top: 100px;
   }
+}
+
+
+/*ANIMATION IMAGE*/
+@keyframes slidingstep1 {
+	0%   { left: -100px; opacity:0;}
+	5%   { left: -75px; opacity:0.2;}
+	10%   { left: -50px; opacity:0.4;}
+	15%   { left: -25px; opacity:0.6;}
+	20%  { left: 0px;opacity:1; }
+	100% { left: 0px;opacity:1; }
+}
+#an {
+	animation-name: slidingstep1;
+	animation-duration: 7s;
+	/* animation-iteration-count: infinite; */
+	animation-direction: normal;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
 }
