@@ -7,8 +7,8 @@
       <mat-label >Email</mat-label>
       <input matInput formControlName='email'>
       <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
-        <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
-        <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+        <span class="err-msg" *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+        <span class="err-msg"  *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
@@ -17,6 +17,9 @@
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
+      <mat-error class="err-msg" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+        <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+      </mat-error>
     </mat-form-field>
     <button mat-stroked-button class="login-button" type="submit">Continue</button>
   </form>
