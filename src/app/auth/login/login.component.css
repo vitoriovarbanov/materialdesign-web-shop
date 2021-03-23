@@ -31,6 +31,8 @@ h2{
   height: 55px;
   border-radius: 10px;
   font-size: 1.3em;
+  cursor: pointer;
+  color: white;
 }
 
 .alternative-login{
@@ -42,11 +44,14 @@ h2{
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  outline: none;
 }
 
-.alternative-login img{
- justify-content: flex-start;
+.alternative-login:hover{
+  color: #64DD17;
 }
+
 
 @media screen and (max-width: 1920px) and (max-height: 1080px) {
   .background-container{
