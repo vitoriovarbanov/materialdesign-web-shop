@@ -7,8 +7,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  hide = true;
+  hide: boolean = true;
   emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
     password: new FormControl('', [Validators.required])
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   onLoginClick(){
     console.log(`form`)
+    // TO DO !!!!!!!!!
   }
 
 }
