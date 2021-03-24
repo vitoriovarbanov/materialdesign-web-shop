@@ -2,12 +2,19 @@
   <div class="example-container">
 
     <div>
-      <button mat-icon-button class="example-icon-top" aria-label="Example icon-button with menu icon">
-        <mat-icon color='primary' class="menu-icon">menu</mat-icon>
+      <button mat-icon-button class="example-icon-top" [matMenuTriggerFor]="topMenu">
+        <span class="material-icons" *ngIf='!showClose'>menu</span>
+        <span class="material-icons" *ngIf='showClose'>highlight_off</span>
       </button>
-      <img class='logo' width="30px" height="30px" src="../../../assets/store-logo.png">
-      <a routerLink='/'><span>Web Health Store</span></a>
-      <span class="example-spacer"></span>
+      <mat-menu #topMenu>
+        <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Shop</a></menu>
+        <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Blog</a></menu>
+        <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
+      </mat-menu>
+      <!-- <img class='logo' width="30px" height="30px" src="../../../assets/store-logo.png"> -->
+      <mat-icon color="primary">favorite</mat-icon>
+      <a routerLink='/'><span style="margin-left: 6px; font-size: 25px;">Web Health Store</span></a>
+      <!-- <span class="example-spacer"></span> -->
       <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <a routerLink='auth/login'><mat-icon color="primary">favorite</mat-icon></a>
       </button> -->
@@ -17,19 +24,16 @@
     </div>
 
     <div class="right-menu">
-      <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Shop</a>
-    <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Blog</a>
-    <!-- <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a>
-    <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a> -->
-    <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Get started</button>
-    <mat-menu #settingsMenu>
-      <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
-      <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a></menu>
-    </mat-menu>
-
+        <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Shop</a>
+        <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Blog</a>
+        <!-- <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a>
+        <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a> -->
+        <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Get started</button>
+        <mat-menu #settingsMenu>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a></menu>
+        </mat-menu>
     </div>
+
   </div>
-
-
-
 </mat-toolbar>
