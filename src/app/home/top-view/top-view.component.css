@@ -202,6 +202,24 @@ svg {
   }
 }
 
+@media screen and (max-width: 420px) and (min-height: 680px){
+  .transparent-container {
+    margin-top: 50px;
+    width: 400px;
+    height: 270px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .image1 {
+    width: 160px;
+    height: 220px;
+  }
+  .image2 {
+    width: 160px;
+    height: 220px;
+  }
+}
+
 /********* ANIMATIONS *********/
 
 @media screen and (min-width: 700px) {
