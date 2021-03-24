@@ -7,6 +7,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
   showClose = false;
+
   @HostListener('window:click', ['$event.target'])
   onClick(e){
     if(e.textContent === 'menu'){
@@ -14,19 +15,11 @@ export class SideBarComponent implements OnInit {
     }else{
       this.showClose = false
     }
-    console.log(e.textContent)
   }
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  toggleClose(){
-    /* if(!this.showClose){
-      this.showClose = true
-    }else{
-      this.showClose = false
-    }
-    console.log(this.showClose) */
-  }
 }

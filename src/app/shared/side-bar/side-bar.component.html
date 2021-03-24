@@ -3,13 +3,15 @@
 
     <div>
       <button mat-icon-button class="example-icon-top" [matMenuTriggerFor]="topMenu">
-        <span class="material-icons" *ngIf='!showClose'>menu</span>
-        <span class="material-icons" *ngIf='showClose'>highlight_off</span>
+          <span class="material-icons" *ngIf='!showClose' aria-label="Menu button toggle">menu</span>
+          <span class="material-icons" *ngIf='showClose' aria-label="Close Menu">highlight_off</span>
       </button>
       <mat-menu #topMenu>
-        <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Shop</a></menu>
-        <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Blog</a></menu>
-        <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
+        <ng-template matMenuContent>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Shop link">Shop</a></menu>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Blog link">Blog</a></menu>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
+        </ng-template>
       </mat-menu>
       <!-- <img class='logo' width="30px" height="30px" src="../../../assets/store-logo.png"> -->
       <mat-icon color="primary">favorite</mat-icon>
@@ -24,14 +26,16 @@
     </div>
 
     <div class="right-menu">
-        <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Shop</a>
-        <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Blog</a>
+        <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Shop link">Shop</a>
+        <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Blog link">Blog</a>
         <!-- <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a>
         <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a> -->
         <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Get started</button>
         <mat-menu #settingsMenu>
-          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
-          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a></menu>
+          <ng-template matMenuContent>
+            <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
+            <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Register link">Register</a></menu>
+          </ng-template>
         </mat-menu>
     </div>
 
