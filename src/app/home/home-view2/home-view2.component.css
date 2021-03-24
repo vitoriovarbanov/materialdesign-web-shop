@@ -30,3 +30,10 @@ h2{
   height: 250px;
   width: 150px;
 }
+
+
+@media screen and (max-width: 440px) {
+  .mat-card img{
+    width: 100%
+  }
+}

@@ -1,23 +1,35 @@
 <mat-toolbar color="accent">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon color='primary' class="menu-icon">menu</mat-icon>
-  </button>
-  <a routerLink='/'><span>Web Health Store</span></a>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <a routerLink='auth/login'><mat-icon color="primary">favorite</mat-icon></a>
-  </button>
-<!--   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <a routerLink='auth/register'><mat-icon color="primary">share</mat-icon></a>
-  </button> -->
-  <!-- <a class="example-spacer" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Shop</a>
-  <a class="example-spacer" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Blog</a> -->
-  <!-- <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a>
-  <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a> -->
-  <!-- <button class="example-spacer" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Settings</button>
+  <div class="example-container">
 
-  <mat-menu #settingsMenu>
-    <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
-    <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a></menu>
-  </mat-menu> -->
+    <div>
+      <button mat-icon-button class="example-icon-top" aria-label="Example icon-button with menu icon">
+        <mat-icon color='primary' class="menu-icon">menu</mat-icon>
+      </button>
+      <img class='logo' width="30px" height="30px" src="../../../assets/store-logo.png">
+      <a routerLink='/'><span>Web Health Store</span></a>
+      <span class="example-spacer"></span>
+      <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <a routerLink='auth/login'><mat-icon color="primary">favorite</mat-icon></a>
+      </button> -->
+    <!--   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <a routerLink='auth/register'><mat-icon color="primary">share</mat-icon></a>
+      </button> -->
+    </div>
+
+    <div class="right-menu">
+      <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Shop</a>
+    <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Blog</a>
+    <!-- <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a>
+    <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a> -->
+    <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Get started</button>
+    <mat-menu #settingsMenu>
+      <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
+      <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a></menu>
+    </mat-menu>
+
+    </div>
+  </div>
+
+
+
 </mat-toolbar>

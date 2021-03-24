@@ -1,15 +1,16 @@
 .example-container {
-  position: fixed;
-  max-width: 200px;
-  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .example-icon {
   padding: 0 14px;
 }
-.example-spacer {
-  flex: 1 1 auto;
-  width: 30px;
+
+.example-spacer-right {
+  flex: 1 2 1;
+  margin-left: 20px;
 }
 
 a{
@@ -17,13 +18,23 @@ a{
   text-decoration: none;
 }
 
-.menu-icon{
+.example-icon-top{
   display: none;
+}
+
+.logo{
+  margin-right: 10px;
 }
 
 
 @media screen and (max-width: 555px) {
-  .menu-icon{
+  .example-icon-top{
     display: initial;
+  }
+  .logo{
+    display: none;
+  }
+  .right-menu{
+    display: none;
   }
 }
