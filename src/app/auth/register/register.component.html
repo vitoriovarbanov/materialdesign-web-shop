@@ -1,6 +1,5 @@
 <div class="background-container">
-  <p>{{registerForm.errors | json }}</p>
-<!--   <p>{{registerForm.errors.passDontMatch | json }}</p> -->
+ <!--  <p>{{registerForm.errors | json }}</p> -->
   <h2>Web Health Store</h2>
   <h3 style="color: white;">Register</h3>
    <div class='form-container'>
@@ -30,9 +29,6 @@
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error class="err-msg" *ngIf="registerForm.errors">
-        <p *ngIf="registerForm.errors">sss</p>
-      </mat-error>
       <mat-error class="err-msg" *ngIf="registerForm.controls.confirmPass.touched && registerForm.controls.confirmPass.invalid">
         <span *ngIf="registerForm.controls.confirmPass.errors.required">This field is mandatory.</span>
       </mat-error>
@@ -40,8 +36,8 @@
     <button mat-stroked-button class="login-button" type="submit">Continue</button>
   </form>
 
-   <!--  <p style="text-align: center; font-size: 1em; margin-top: 10px; margin-bottom: -10px;">OR</p>
+   <p style="text-align: center; font-size: 1em; margin-top: 10px; margin-bottom: -10px;">OR</p>
     <button class="alternative-login"><img src="../../../assets/google-icon.svg" width="29px" height="29px">Sign In with Google</button>
     <button class="alternative-login"><img src="../../../assets/facebook-3.svg" width="29px" height="29px">Continue with Facebook</button>
-  </div> -->
+  </div>
 </div>

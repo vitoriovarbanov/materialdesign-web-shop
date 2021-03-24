@@ -2,10 +2,35 @@
   background-color: #00796b;
 }
 
+.header-container{
+  width: 75%;
+  margin: 0 auto;
+}
+
 h2{
   text-align: center;
   font-size: 2rem;
-  font-family: 'Bree Serif', serif;
+}
+
+h2:before,
+h2:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 20%;
+}
+
+h2:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+h2:after {
+  left: 0.5em;
+  margin-right: -50%;
 }
 
 .section-products{
@@ -41,10 +66,20 @@ h2{
   width: 150px;
 }
 
+@media screen and (max-width: 720px) {
+  h2{
+    font-size: 1.5em;
+  }
+}
+
 
 @media screen and (max-width: 440px) {
   .mat-card img{
     width: 100%
   }
+  h2:before,
+  h2:after {
+  width: 5%;
+}
 }
 
