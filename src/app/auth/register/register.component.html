@@ -1,15 +1,17 @@
 <div class="background-container">
+  <p>{{registerForm.errors | json }}</p>
+<!--   <p>{{registerForm.errors.passDontMatch | json }}</p> -->
   <h2>Web Health Store</h2>
   <h3 style="color: white;">Register</h3>
    <div class='form-container'>
 
-  <form [formGroup]='loginForm' (ngSubmit)='onLoginClick()'>
+  <form [formGroup]='registerForm' (ngSubmit)='onRegisterClick()'>
     <mat-form-field appearance="fill">
       <mat-label >Email</mat-label>
       <input matInput formControlName='email'>
-      <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
-        <span class="err-msg" *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
-        <span class="err-msg" *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+      <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+        <span class="err-msg" *ngIf="registerForm.controls.email.errors.required">This field is mandatory.</span>
+        <span class="err-msg" *ngIf="registerForm.controls.email.errors.pattern">This field is invalid.</span>
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
@@ -18,8 +20,8 @@
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error class="err-msg" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
-        <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+      <mat-error class="err-msg" *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
+        <span *ngIf="registerForm.controls.password.errors.required">This field is mandatory.</span>
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
@@ -28,8 +30,11 @@
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error class="err-msg" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
-        <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+      <mat-error class="err-msg" *ngIf="registerForm.errors">
+        <p *ngIf="registerForm.errors">sss</p>
+      </mat-error>
+      <mat-error class="err-msg" *ngIf="registerForm.controls.confirmPass.touched && registerForm.controls.confirmPass.invalid">
+        <span *ngIf="registerForm.controls.confirmPass.errors.required">This field is mandatory.</span>
       </mat-error>
     </mat-form-field>
     <button mat-stroked-button class="login-button" type="submit">Continue</button>

@@ -17,8 +17,8 @@
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error class="err-msg" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
-        <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+      <mat-error class="err-msg" *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+        <span *ngIf="loginForm.controls.password.errors.required">This field is mandatory.</span>
       </mat-error>
     </mat-form-field>
     <button mat-stroked-button class="login-button" type="submit">Continue</button>
