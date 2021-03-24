@@ -16,6 +16,7 @@
 a{
   color: white;
   text-decoration: none;
+  box-shadow: none;
 }
 
 .example-icon-top{
@@ -26,6 +27,17 @@ a{
   margin-right: 10px;
 }
 
+::ng-deep .mat-menu-content {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  background-color: #64DD17;
+}
+
+.mat-menu-item{
+  line-height: 5px;
+  height: 55px;
+  box-shadow: none;
+}
 
 @media screen and (max-width: 555px) {
   .example-icon-top{

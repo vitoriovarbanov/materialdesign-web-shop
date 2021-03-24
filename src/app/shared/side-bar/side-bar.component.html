@@ -8,9 +8,10 @@
       </button>
       <mat-menu #topMenu>
         <ng-template matMenuContent>
-          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Shop link">Shop</a></menu>
-          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Blog link">Blog</a></menu>
-          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Shop link">Shop</a></menu>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Blog link">Blog</a></menu>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Login link">Login</a></menu>
+          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Register link">Register</a></menu>
         </ng-template>
       </mat-menu>
       <!-- <img class='logo' width="30px" height="30px" src="../../../assets/store-logo.png"> -->
@@ -33,8 +34,8 @@
         <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Get started</button>
         <mat-menu #settingsMenu>
           <ng-template matMenuContent>
-            <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a></menu>
-            <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="primary" aria-label="Register link">Register</a></menu>
+            <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Login link">Login</a></menu>
+            <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Register link">Register</a></menu>
           </ng-template>
         </mat-menu>
     </div>
