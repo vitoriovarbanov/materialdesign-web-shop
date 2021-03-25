@@ -9,6 +9,7 @@ import { FirebaseAuthService } from 'src/app/auth/firebase-auth.service';
 export class SideBarComponent implements OnInit {
   showClose = false;
   signedIn: boolean = false;
+  userPhoto: string = localStorage.getItem('photoUrl')
 
   @HostListener('window:click', ['$event.target'])
   onClick(e){

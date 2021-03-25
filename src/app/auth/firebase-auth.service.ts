@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { BehaviorSubject } from 'rxjs';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,7 @@ export class FirebaseAuthService {
       this.afAuth.authState.subscribe((user)=>{
         if(user){
           console.log(user)
+          localStorage.setItem('photoUrl', user.photoURL)
           this.signedIn$.next(true)
         }else{
           this.signedIn$.next(false)

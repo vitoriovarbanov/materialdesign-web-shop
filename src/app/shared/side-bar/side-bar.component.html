@@ -41,7 +41,8 @@
         </mat-menu>
         </ng-container>
         <ng-container *ngIf='signedIn'>
-          <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="accountMenu" matTooltip="Profile/Log Out">Account</button>
+          <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="accountMenu" matTooltip="Profile/Log Out">Account
+          <img *ngIf='userPhoto' width="25px" height="25px" src="{{userPhoto}}" style="border-radius: 15px;"></button>
           <mat-menu #accountMenu>
           <ng-template matMenuContent>
             <menu mat-menu-item><a routerLink='/' mat-raised-button color="accent" aria-label="Login link">Profile</a></menu>
