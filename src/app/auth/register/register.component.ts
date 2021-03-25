@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
   }
 
   googleLogin(e){
-    console.log(e)
     this.authService.AuthLogin(this.provider)
   }
 }
