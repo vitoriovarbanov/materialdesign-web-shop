@@ -11,6 +11,7 @@ import { HomeModule } from './home/home.module';
 // FIREBASE
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { HttpClientModule } from '@angular/common/http';
 
 var firebaseConfig = {
   apiKey: "AIzaSyCSMVEI-JeMqnZkV0xINRC7aDOpR_zIvE4",
@@ -30,6 +31,7 @@ var firebaseConfig = {
     AppRoutingModule,
     AngularMaterialModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SharedModule,
     HomeModule,
     AngularFireModule.initializeApp(firebaseConfig),
