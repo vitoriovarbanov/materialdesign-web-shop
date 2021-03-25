@@ -46,6 +46,36 @@ export class FirebaseAuthService {
       .catch(err => console.log(err.message))
   }
 
+  login(email: string, password: string) {
+    return this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.signedIn$.next(true)
+       /*  this.newUser = false;
+        this.getUserFirebase()
+          .subscribe((data) => {
+            const arr = Object.entries(data)
+            const userLocalStorage = JSON.parse(localStorage.getItem('user'))
+            if (userLocalStorage) {
+              const userEmail = userLocalStorage.email;
+              const userDatabaseMail = arr.find(x => x[1].email === userEmail)
+              if (!userDatabaseMail) {
+                this.signedin$.next(false)
+              } else {
+                let id = userDatabaseMail[0]
+                localStorage.setItem('firebaseId', id)
+                this.id.next(localStorage.getItem('firebaseId'))
+              }
+            }
+          }) */
+        this.router.navigate(['/'])
+        console.log('Nice, it worked!', result);
+      })
+      .catch(err => {
+        console.log('Something went wrong:', err.message);
+      });
+  }
+
   logout() {
     return this.afAuth.signOut().then(() => {
       this.signedIn$.next(false)
