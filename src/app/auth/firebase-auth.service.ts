@@ -17,26 +17,27 @@ interface User {
 })
 export class FirebaseAuthService {
   signedIn$ = new BehaviorSubject(null)
-  newUser: boolean;
+  newUser = new BehaviorSubject(true)
 
   constructor(public afAuth: AngularFireAuth,
     private router: Router, private firestoreDatabase: AngularFirestore) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
-        //console.log(user)
         this.signedIn$.next(true)
         if (user.photoURL) {
           localStorage.setItem('photoUrl', user.photoURL)
         }
         this.firestoreDatabase.doc(`users/${user.uid}`).valueChanges()
-          .pipe(take(1)).subscribe(data=>{
-            console.log(data)
-            this.newUser = data['newUser']
-            console.log(this.newUser)
+          .pipe(take(1)).subscribe(data => {
+            this.newUser.next(data['newUser'])
           })
-        if (this.newUser === true) {
-          this.signedIn$.next(false)
-        }
+        this.newUser.subscribe(data => {
+          if (data === true){
+            this.signedIn$.next(false)
+          }else{
+            this.signedIn$.next(true)
+          }
+        })
         return this.firestoreDatabase.doc(`users/${user.uid}`).valueChanges()
       } else {
         this.signedIn$.next(false)
@@ -47,7 +48,7 @@ export class FirebaseAuthService {
   async AuthLogin(provider) {
     return await this.afAuth.signInWithPopup(provider)
       .then((result) => {
-        console.log('You have been successfully logged in!')
+        console.log('Logged in with Google!')
         this.router.navigate(['/'])
         return this.updateUserData(result.user, result.additionalUserInfo.isNewUser)
       }).catch((error) => {
@@ -59,7 +60,7 @@ export class FirebaseAuthService {
     this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(data => {
         this.router.navigate(['auth/login'])
-        console.log(data)
+        console.log('Registration successfull!')
         return this.updateUserData(data.user, data.additionalUserInfo.isNewUser)
       })
       .catch(err => console.log(err.message))
@@ -69,27 +70,9 @@ export class FirebaseAuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result)
         this.signedIn$.next(true)
-        /*  this.newUser = false;
-         this.getUserFirebase()
-           .subscribe((data) => {
-             const arr = Object.entries(data)
-             const userLocalStorage = JSON.parse(localStorage.getItem('user'))
-             if (userLocalStorage) {
-               const userEmail = userLocalStorage.email;
-               const userDatabaseMail = arr.find(x => x[1].email === userEmail)
-               if (!userDatabaseMail) {
-                 this.signedin$.next(false)
-               } else {
-                 let id = userDatabaseMail[0]
-                 localStorage.setItem('firebaseId', id)
-                 this.id.next(localStorage.getItem('firebaseId'))
-               }
-             }
-           }) */
+        console.log('Logged In!');
         this.router.navigate(['/'])
-        console.log('Nice, it worked!');
         return this.updateUserData(result.user, result.additionalUserInfo.isNewUser)
       })
       .catch(err => {
@@ -100,6 +83,7 @@ export class FirebaseAuthService {
   logout() {
     return this.afAuth.signOut().then(() => {
       this.signedIn$.next(false)
+      console.log('Logged Out!');
       localStorage.clear();
       this.router.navigate(['/']);
     })
