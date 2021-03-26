@@ -26,6 +26,7 @@ export class SideBarComponent implements OnInit {
         this.signedIn = data
         console.log(data)
       })
+      console.log(this.userPhoto)
   }
 
   ngOnInit(): void {

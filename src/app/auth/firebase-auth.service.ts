@@ -2,8 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router'
 import { BehaviorSubject } from 'rxjs';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 
-
+interface User{
+  uid: string,
+  email: string,
+  displayName: string,
+  photoURL: string,
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +18,19 @@ export class FirebaseAuthService {
   signedIn$ = new BehaviorSubject(null)
 
   constructor(public afAuth: AngularFireAuth,
-    private router: Router) {
+    private router: Router, private firestoreDatabase: AngularFirestore) {
       this.afAuth.authState.subscribe((user)=>{
         if(user){
-          console.log(user)
-          localStorage.setItem('photoUrl', user.photoURL)
+          if(user.photoURL){
+            localStorage.setItem('photoUrl', user.photoURL)
+          }
           this.signedIn$.next(true)
+          return this.firestoreDatabase.doc(`users/${user.uid}`).valueChanges()
         }else{
           this.signedIn$.next(false)
         }
       })
   }
-
-
 
   async AuthLogin(provider) {
     return await this.afAuth.signInWithPopup(provider)
@@ -32,6 +38,7 @@ export class FirebaseAuthService {
         console.log(result)
         console.log('You have been successfully logged in!')
         this.router.navigate(['/'])
+        return this.updateUserData(result.user)
       }).catch((error) => {
         console.log(error)
       })
@@ -40,8 +47,8 @@ export class FirebaseAuthService {
   registerUserWithMail(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(data => {
-        console.log(data)
         this.router.navigate(['auth/login'])
+        return this.updateUserData(data.user)
       })
       .catch(err => console.log(err.message))
   }
@@ -79,10 +86,22 @@ export class FirebaseAuthService {
   logout() {
     return this.afAuth.signOut().then(() => {
       this.signedIn$.next(false)
-      /* localStorage.removeItem('user');
-      localStorage.removeItem('firebaseId');
-      this.router.navigate(['auth/login']); */
+      localStorage.clear();
+      this.router.navigate(['/']);
     })
+  }
+
+  updateUserData({uid,email,displayName,photoURL}: User){
+    //Sets user data to firestore on login with google/ register
+    const userRef: AngularFirestoreDocument<User> = this.firestoreDatabase.doc(`users/${uid}`)
+
+    const data = {
+      uid,
+      email,
+      displayName,
+      photoURL
+    }
+    return userRef.set(data, {merge: true})
   }
 
 }
