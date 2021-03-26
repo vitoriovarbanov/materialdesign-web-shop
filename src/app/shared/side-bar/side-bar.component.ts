@@ -24,9 +24,7 @@ export class SideBarComponent implements OnInit {
     this.authService.signedIn$
       .subscribe(data=>{
         this.signedIn = data
-        console.log(data)
       })
-      console.log(this.userPhoto)
   }
 
   ngOnInit(): void {
