@@ -10,7 +10,10 @@
         <ng-template matMenuContent>
          <ng-container *ngIf='signedIn'>
           <menu mat-menu-item><a mat-raised-button color="accent">Account
-          <img *ngIf='userPhoto' width="25px" height="25px" src="{{userPhoto}}" style="border-radius: 15px;"></a></menu></ng-container>
+            <ng-template [ngIf]='userPhoto'>
+              <img width="25px" height="25px" src="{{userPhoto | safe }}" style="border-radius: 15px;">
+            </ng-template>
+          </a></menu></ng-container>
           <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Shop link">Shop</a></menu>
           <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Blog link">Blog</a></menu>
           <ng-container *ngIf='!signedIn && signedIn!==null'>
@@ -39,7 +42,7 @@
         <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Blog link">Blog</a>
         <!-- <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a>
         <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a> -->
-        <ng-container *ngIf='!signedIn && signedIn!==null'>
+        <ng-container *ngIf='!signedIn'>
           <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Get started</button>
           <mat-menu #settingsMenu>
           <ng-template matMenuContent>
@@ -50,8 +53,8 @@
         </ng-container>
         <ng-container *ngIf='signedIn'>
           <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="accountMenu" matTooltip="Profile/Log Out">Account
-            <ng-container *ngIf='userPhoto!==null'>
-              <img  width="25px" height="25px" src="{{userPhoto}}" style="border-radius: 15px;">
+            <ng-container *ngIf='photo'>
+              <img  width="25px" height="25px" [src]="photo | safe" style="border-radius: 15px;">
             </ng-container>
           </button>
           <mat-menu #accountMenu>

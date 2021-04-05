@@ -16,17 +16,13 @@ interface User {
   providedIn: 'root'
 })
 export class FirebaseAuthService {
-  signedIn$ = new BehaviorSubject(null)
+  signedIn$ = new BehaviorSubject(false)
   newUser = new BehaviorSubject(true)
 
   constructor(public afAuth: AngularFireAuth,
     private router: Router, private firestoreDatabase: AngularFirestore) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
-        this.signedIn$.next(true)
-        if (user.photoURL) {
-          localStorage.setItem('photoUrl', user.photoURL)
-        }
         this.firestoreDatabase.doc(`users/${user.uid}`).valueChanges()
           .pipe(take(1)).subscribe(data => {
             this.newUser.next(data['newUser'])
@@ -35,6 +31,10 @@ export class FirebaseAuthService {
           if (data === true){
             this.signedIn$.next(false)
           }else{
+            localStorage.setItem('photoURL', user.photoURL)
+            localStorage.setItem('email', user.email)
+            localStorage.setItem('uid', user.uid)
+            localStorage.setItem('displayName', user.displayName)
             this.signedIn$.next(true)
           }
         })
