@@ -38,11 +38,6 @@ export class SideBarComponent implements OnInit {
 
           this.userPhoto.subscribe(value => {
             this.photo = value
-            /* this.photo = JSON.parse(this.photo)
-            if(this.photo === null){
-              this.userPhoto.next('../../assets/profile-pic/profile.svg')
-            } */
-            console.log(this.photo)
           });
         }
       })

@@ -12,7 +12,7 @@
           <menu mat-menu-item><a mat-raised-button color="accent">Account
               <img width="25px" height="25px" src="{{photo | safe }}" style="border-radius: 15px;">
           </a></menu></ng-container>
-          <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Shop link">Shop</a></menu>
+          <menu mat-menu-item><a routerLink='shop' mat-raised-button color="accent" aria-label="Shop link">Shop</a></menu>
           <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Blog link">Blog</a></menu>
           <ng-container *ngIf='!signedIn && signedIn!==null'>
             <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Login link">Login</a></menu>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="right-menu">
-        <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Shop link">Shop</a>
+        <a class="example-spacer-right" routerLink='shop' mat-raised-button color="primary" aria-label="Shop link">Shop</a>
         <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Blog link">Blog</a>
         <!-- <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Register</a>
         <a routerLink='auth/login' mat-raised-button color="primary" aria-label="Login link">Login</a> -->
