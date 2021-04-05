@@ -10,9 +10,7 @@
         <ng-template matMenuContent>
          <ng-container *ngIf='signedIn'>
           <menu mat-menu-item><a mat-raised-button color="accent">Account
-            <ng-template [ngIf]='userPhoto'>
-              <img width="25px" height="25px" src="{{userPhoto | safe }}" style="border-radius: 15px;">
-            </ng-template>
+              <img width="25px" height="25px" src="{{photo | safe }}" style="border-radius: 15px;">
           </a></menu></ng-container>
           <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Shop link">Shop</a></menu>
           <menu mat-menu-item><a routerLink='auth/login' mat-raised-button color="accent" aria-label="Blog link">Blog</a></menu>

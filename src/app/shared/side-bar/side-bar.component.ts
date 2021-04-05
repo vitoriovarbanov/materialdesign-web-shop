@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { FirebaseAuthService } from 'src/app/auth/firebase-auth.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-side-bar',
@@ -10,32 +10,40 @@ import { Observable } from 'rxjs';
 export class SideBarComponent implements OnInit {
   showClose = false;
   signedIn;
-  userPhoto = new Observable//: string = localStorage.getItem('photoUrl')
+  userPhoto = new BehaviorSubject(null);
   photo;
+  checkProfilePicture
 
   @HostListener('window:click', ['$event.target'])
-  onClick(e){
-    if(e.textContent === 'menu'){
+  onClick(e) {
+    if (e.textContent === 'menu') {
       this.showClose = true
-    }else{
+    } else {
       this.showClose = false
     }
   }
 
   constructor(public authService: FirebaseAuthService) {
     this.authService.signedIn$
-      .subscribe(data=>{
+      .subscribe(data => {
         this.signedIn = data
-        if(this.signedIn===true){
-          this.userPhoto = Observable.create(observer=>{
-            observer.next(JSON.stringify(localStorage.getItem('photoURL')))
-          })
+        if (this.signedIn === true) {
+          //debugger;
+          this.checkProfilePicture = localStorage.getItem('photoURL')
+          if(this.checkProfilePicture === 'null'){
+            this.userPhoto.next('../../assets/profile-pic/profile.svg')
+          }else{
+            this.userPhoto.next(this.checkProfilePicture)
+          }
 
-          this.userPhoto.subscribe(value =>{
+          this.userPhoto.subscribe(value => {
             this.photo = value
-            this.photo = JSON.parse(this.photo)
+            /* this.photo = JSON.parse(this.photo)
+            if(this.photo === null){
+              this.userPhoto.next('../../assets/profile-pic/profile.svg')
+            } */
             console.log(this.photo)
-          } );
+          });
         }
       })
 
@@ -44,7 +52,7 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logoutUser(){
+  logoutUser() {
     this.authService.logout()
   }
 
