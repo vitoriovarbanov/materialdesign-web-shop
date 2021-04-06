@@ -1,0 +1,51 @@
+.example-container{
+  margin: 0;
+  height: 100vh
+}
+
+.side{
+  background-color: #00796B;
+}
+
+.main-content-container{
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../../../assets/blob-scene-haikei.svg);
+}
+
+.header-categories{
+  color: white;
+  font-size: 2em;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.images-section{
+  width: 90%;
+  height: 95%;
+  /* border: 1px solid pink; */
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+img{
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.image-separator{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+/* @media screen and (min-width: 1440px) {
+  .main-content-container{
+    background-image: url(../../../assets/shop-home/blob-scene-haikei.svg);
+  }
+} */
