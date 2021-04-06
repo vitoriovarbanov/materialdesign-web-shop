@@ -33,6 +33,10 @@ a{
   background-color: #64DD17;
 }
 
+.material-icons{
+  align-self: center;
+}
+
 .mat-menu-item{
   line-height: 5px;
   height: 55px;
