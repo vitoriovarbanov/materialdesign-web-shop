@@ -1,19 +1,32 @@
 .mall-slide {
-  background-color: #00796b;
+  /* background-color: #00796b; */
   width: 100%;
-  height: 430px;
+  height: 250px;
   z-index: -1;
+  margin: 0 auto;
+}
+
+.mall-show-slide img{
+  padding-top: 10px;
+  margin: 0;
+  border-radius: 25px;
+  transform:  rotate(0deg);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .mall-slide .slid-content {
+  margin: 0 auto;
   width: 100%;
-  height: 320px !important;
+  height: 260px !important;
   overflow: hidden;
 }
 
 .mall-slide .slid-content .mall-carousel-ind {
   position: absolute;
-  top: 290px;
+  top: 230px;
   width: 100%;
   line-height: 0!important;
   text-align: center;
@@ -74,6 +87,7 @@
 
 .master{
   min-height: 100vh;
+  background-image: url(../../../assets/blob-scene-haikei.svg);
 }
 
 .example-container{
@@ -92,13 +106,12 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background-image: url(../../../assets/blob-scene-haikei.svg);
 }
 
 .header-categories{
   color: white;
   font-size: 2em;
-  padding-top: 120px;
+  padding-top: 60px;
   text-align: center;
 }
 
