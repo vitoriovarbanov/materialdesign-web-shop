@@ -1,6 +1,11 @@
+.master{
+  min-height: 100vh;
+}
+
 .example-container{
   margin: 0;
-  height: 100vh
+  /* height: 100vh; */
+  overflow: none;
 }
 
 .side{
@@ -8,7 +13,7 @@
 }
 
 .main-content-container{
-  min-height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -28,24 +33,29 @@
   height: 95%;
   /* border: 1px solid pink; */
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
 img{
   border-radius: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  margin-left: 20px;
 }
-
+svg{
+  width: 66%;
+  margin-bottom: 10px;
+}
 .image-separator{
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   margin-top: 20px;
 }
 
-/* @media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .main-content-container{
     background-image: url(../../../assets/shop-home/blob-scene-haikei.svg);
   }
-} */
+}
