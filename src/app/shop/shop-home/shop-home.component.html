@@ -6,7 +6,23 @@
     </mat-drawer> -->
     <mat-drawer-content>
       <div class="main-content-container">
-        <h1 class="header-categories">Categories</h1>
+        <div class="test">
+          <div class="mall-slide">
+            <div class="slid-content">
+                <div class="mall-show-slide fade" *ngFor="let item of Imagedata;">
+                    <img src="{{item}}" style="width:66%; background-position: -20em;">
+                </div>
+                <div class="mall-carousel-ind">
+                    <ul>
+                        <li *ngFor="let item of Imagedata; let i = index;" [class.mall-this]="startIndex - 1 === i"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div>
+          <h1 class="header-categories">Categories</h1>
+        </div>
         <div class="images-section">
           <div class="image-separator" *ngFor='let image of images; let i = index'>
             <img role="presentation" src="{{image.src}}" alt="{{image.alt}}" width="300" height="360" [class.my_class] = "i%2===0">
