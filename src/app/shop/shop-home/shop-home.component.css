@@ -40,7 +40,13 @@ img{
   border-radius: 0px 50px 10px 80px;
   margin-bottom: 15px;
   margin-left: 20px;
+  transform: rotate(5deg);
 }
+
+.my_class{
+  transform: rotate(-5deg);
+}
+
 button{
   margin-bottom: 10px;
 }
