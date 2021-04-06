@@ -12,4 +12,14 @@ export class ShopHomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  images = [
+    { src: "../../../assets/shop-product-categories/1.jpg", alt: 'display-alt-text-here'},
+    { src: "../../../assets/shop-product-categories/2.jpg", alt: 'display-alt-text-here'},
+    { src: "../../../assets/shop-product-categories/3.jpg", alt: 'display-alt-text-here'},
+    { src: "../../../assets/shop-product-categories/4.jpg", alt: 'display-alt-text-here'},
+    { src: "../../../assets/shop-product-categories/5.jpg", alt: 'display-alt-text-here'},
+    { src: "../../../assets/shop-product-categories/6.jpg", alt: 'display-alt-text-here'},
+    { src: "../../../assets/shop-product-categories/7.jpg", alt: 'display-alt-text-here'},
+  ]
+
 }

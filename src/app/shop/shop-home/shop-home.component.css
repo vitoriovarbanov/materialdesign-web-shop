@@ -31,16 +31,18 @@
 .images-section{
   width: 90%;
   height: 95%;
-  /* border: 1px solid pink; */
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
 img{
-  border-radius: 10px;
+  border-radius: 0px 50px 10px 80px;
   margin-bottom: 15px;
   margin-left: 20px;
+}
+button{
+  margin-bottom: 10px;
 }
 svg{
   width: 66%;
@@ -52,6 +54,7 @@ svg{
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  flex: 1 0 21%; /* explanation below */
 }
 
 @media screen and (min-width: 1200px) {
@@ -59,3 +62,16 @@ svg{
     background-image: url(../../../assets/shop-home/blob-scene-haikei.svg);
   }
 }
+
+/* @media screen and (min-height: 1500px) {
+  .main-content-container{
+    background-image: url(../../../assets/shop-home/2000.svg);
+  }
+} */
+
+@media screen and (max-height: 1530px) {
+  .main-content-container{
+    background-image: url(../../../assets/shop-home/2600.svg);
+  }
+}
+
