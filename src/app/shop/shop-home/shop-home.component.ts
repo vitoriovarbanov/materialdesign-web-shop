@@ -7,16 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopHomeComponent implements OnInit {
   Imagedata = [
-    '../../../assets/shop-home/header-top/1.jpg',
-    '../../../assets/shop-home/header-top/2.jpg',
-    '../../../assets/shop-home/header-top/5.jpg',
-    '../../../assets/shop-home/header-top/6.jpg',
+    '../../../assets/shop-home/header-top/888.jpg',
+    '../../../assets/shop-home/header-top/444.jpg',
+    '../../../assets/shop-home/header-top/55.jpg',
+    '../../../assets/shop-home/header-top/777.jpg',
   ]
-  constructor() { }
-
-  ngOnInit(): void {
-    this.Repeat()
-  }
 
   images = [
     { src: "../../../assets/shop-product-categories/8.jpg", alt: 'display-alt-text-here', text: 'Food and Beverages' },
@@ -28,11 +23,18 @@ export class ShopHomeComponent implements OnInit {
     { src: "../../../assets/shop-product-categories/13.jpg", alt: 'display-alt-text-here', text: 'Diet' },
   ]
 
+  constructor() { }
+
+  ngOnInit(): void {
+    this.Repeat()
+  }
+
+
   Repeat() {
     setTimeout(() => {
       this.__FunctionSlide();
       this.Repeat();
-    }, 2000);
+    }, 4000);
   }
   startIndex = 0;
 
