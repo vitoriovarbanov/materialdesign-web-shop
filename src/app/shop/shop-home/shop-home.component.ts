@@ -14,13 +14,13 @@ export class ShopHomeComponent implements OnInit {
   ]
 
   images = [
-    { src: "../../../assets/shop-product-categories/8.jpg", alt: 'display-alt-text-here', text: 'Food and Beverages' },
-    { src: "../../../assets/shop-product-categories/9.jpg", alt: 'display-alt-text-here', text: 'Herbs and Botanicals' },
-    { src: "../../../assets/shop-product-categories/10.jpg", alt: 'display-alt-text-here', text: 'Beauty and Personal care' },
-    { src: "../../../assets/shop-product-categories/5.jpg", alt: 'display-alt-text-here', text: 'Sports and Fitness' },
-    { src: "../../../assets/shop-product-categories/11.jpg", alt: 'display-alt-text-here', text: 'Vitamins and Supplements' },
-    { src: "../../../assets/shop-product-categories/12.jpg", alt: 'display-alt-text-here', text: 'Superfoods' },
-    { src: "../../../assets/shop-product-categories/13.jpg", alt: 'display-alt-text-here', text: 'Diet' },
+    { src: "../../../assets/shop-product-categories/8.jpg", alt: 'display-alt-text-here', text: 'Food and Beverages', link: 'foodbvg' },
+    { src: "../../../assets/shop-product-categories/9.jpg", alt: 'display-alt-text-here', text: 'Herbs and Botanicals', link: 'foodbvg' },
+    { src: "../../../assets/shop-product-categories/10.jpg", alt: 'display-alt-text-here', text: 'Beauty and Personal care', link: 'foodbvg' },
+    { src: "../../../assets/shop-product-categories/5.jpg", alt: 'display-alt-text-here', text: 'Sports and Fitness', link: 'sports' },
+    { src: "../../../assets/shop-product-categories/11.jpg", alt: 'display-alt-text-here', text: 'Vitamins and Supplements', link: 'foodbvg' },
+    { src: "../../../assets/shop-product-categories/12.jpg", alt: 'display-alt-text-here', text: 'Superfoods', link: 'foodbvg' },
+    { src: "../../../assets/shop-product-categories/13.jpg", alt: 'display-alt-text-here', text: 'Diet', link: 'foodbvg' },
   ]
 
   constructor() { }

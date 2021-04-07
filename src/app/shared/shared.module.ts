@@ -4,10 +4,11 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { RouterModule } from '@angular/router';
 import { SafePipe } from './safe.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
-  declarations: [SideBarComponent, SafePipe],
+  declarations: [SideBarComponent, SafePipe, NotFoundComponent],
   imports: [
     CommonModule,
     AngularMaterialModule,
