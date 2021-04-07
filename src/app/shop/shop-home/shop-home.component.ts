@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-shop-home',
@@ -23,7 +25,8 @@ export class ShopHomeComponent implements OnInit {
     { src: "../../../assets/shop-product-categories/13.jpg", alt: 'display-alt-text-here', text: 'Diet', link: 'foodbvg' },
   ]
 
-  constructor() { }
+  constructor( private firestoreDatabase: AngularFirestore, private http: HttpClient) {
+  }
 
   ngOnInit(): void {
     this.Repeat()
