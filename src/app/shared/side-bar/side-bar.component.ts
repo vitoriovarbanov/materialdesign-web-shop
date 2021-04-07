@@ -1,6 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { FirebaseAuthService } from 'src/app/auth/firebase-auth.service';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { Router, NavigationEnd } from '@angular/router';
+
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,10 +12,11 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class SideBarComponent implements OnInit {
   showClose = false;
+  showCart = false;
   signedIn;
   userPhoto = new BehaviorSubject(null);
   photo;
-  checkProfilePicture
+  checkProfilePicture;
 
   @HostListener('window:click', ['$event.target'])
   onClick(e) {
@@ -23,7 +27,7 @@ export class SideBarComponent implements OnInit {
     }
   }
 
-  constructor(public authService: FirebaseAuthService) {
+  constructor(public authService: FirebaseAuthService, private router: Router) {
     this.authService.signedIn$
       .subscribe(data => {
         this.signedIn = data
@@ -42,6 +46,15 @@ export class SideBarComponent implements OnInit {
         }
       })
 
+      router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe((event: NavigationEnd) => {
+        if(event.url.includes('shop')){
+          this.showCart = true;
+        }else{
+          this.showCart = false;
+        }
+      });
   }
 
   ngOnInit(): void {

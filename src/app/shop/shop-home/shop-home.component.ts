@@ -9,7 +9,7 @@ export class ShopHomeComponent implements OnInit {
   Imagedata = [
     '../../../assets/shop-home/header-top/888.jpg',
     '../../../assets/shop-home/header-top/444.jpg',
-    '../../../assets/shop-home/header-top/55.jpg',
+    '../../../assets/shop-home/header-top/555.jpg',
     '../../../assets/shop-home/header-top/777.jpg',
   ]
 

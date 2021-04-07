@@ -1,4 +1,7 @@
 import { Component, AfterViewInit, ElementRef, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+
+import { filter } from 'rxjs/operators';
 
 
 @Component({
@@ -8,7 +11,10 @@ import { Component, AfterViewInit, ElementRef, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements AfterViewInit {
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef, private router: Router) {
+
+  }
+
 
   ngAfterViewInit() {
     //this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'wheat';

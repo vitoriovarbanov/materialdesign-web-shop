@@ -159,11 +159,11 @@ svg{
   background-position-y: -10em; */
 }
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   .main-content-container{
     background-image: url(../../../assets/shop-home/blob-scene-haikei.svg);
   }
-}
+} */
 
 /* @media screen and (min-height: 1500px) {
   .main-content-container{
@@ -173,7 +173,7 @@ svg{
 
 @media screen and (max-height: 1530px) {
   .main-content-container{
-    background-image: url(../../../assets/shop-home/2600.svg);
+    background-image: url(../../../assets/shop-home/2000.svg);
   }
 }
 
