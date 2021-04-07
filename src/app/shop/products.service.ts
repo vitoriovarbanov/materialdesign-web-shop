@@ -16,7 +16,5 @@ export class ProductsService {
       .pipe(map(data=>{
         return data['documents'].map(x=>x['fields'])
       }))
-      //.pipe(pluck('documents'))
-      //.subscribe(data=>console.log(data['documents'][0]['fields']['img']['stringValue']))
   }
 }

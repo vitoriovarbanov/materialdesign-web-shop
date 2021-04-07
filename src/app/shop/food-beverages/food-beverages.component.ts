@@ -8,6 +8,7 @@ import { ProductsService } from '../products.service';
 })
 export class FoodBeveragesComponent implements OnInit {
   products
+  panelOpenState = false;
 
   constructor(private srvc: ProductsService) {
      this.srvc.getFoodBeveragesProducsts()
