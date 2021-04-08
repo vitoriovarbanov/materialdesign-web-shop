@@ -4,7 +4,14 @@
 *{
   box-sizing: border-box;
 }
+.mat-expansion-panel{
+  background-color: #64DD17;
+}
 
+.main-content-div{
+  background-image: url(../../../assets/products-background/1920.svg);
+  min-height: 100vh;
+}
 .cards {
   border: 1px solid pink;
   margin: 0 auto;
@@ -17,7 +24,7 @@
 }
 
 .card--1 .card__img, .card--1 .card__img--hover {
-    background-image: url('https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    background-image: url('../../../assets/ttt.jpg');
 }
 
 .card--2 .card__img, .card--2 .card__img--hover {
@@ -53,7 +60,7 @@
     height: 235px;
   border-top-left-radius: 12px;
 border-top-right-radius: 12px;
-
+margin: 20px;
 }
 
 .card__info-hover {
@@ -78,10 +85,10 @@ top: 0;
 
 }
 .card {
-  margin-right: 25px;
+  margin: 25px;
   transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
   background-color: #fff;
-    width: 250px;
+  width: 250px;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
