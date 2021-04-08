@@ -23,9 +23,9 @@
     width: 77%;
 }
 
-.card .card__img, .card .card__img--hover {
-    background-image: url('../../../assets/ttt.jpg');
-}
+/* .card .card__img, .card .card__img--hover {
+    background-image: url('../../../assets/shop-products/food-bevarages-producsts/1.jpg');
+} */
 
 .card__like {
     width: 18px;
