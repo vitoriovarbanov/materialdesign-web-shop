@@ -12,3 +12,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+.btn-container{
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

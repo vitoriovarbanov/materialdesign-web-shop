@@ -2,9 +2,10 @@
   box-sizing: border-box;
 }
 
-.mat-panel-title{
-  font-size: 18px !important;
-  justify-content: flex-start;
+.mat-paginator{
+  font-size: 15px !important;
+  display: flex;
+  justify-content: center;
 }
 
 .mat-list-base{

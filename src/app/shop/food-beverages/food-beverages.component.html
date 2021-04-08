@@ -1,17 +1,17 @@
 <app-sort-expansion-panel></app-sort-expansion-panel>
+
 <ng-template [ngIf]='products'>
   <mat-paginator style="background-color: #64DD17; margin: 0;" [length]="products.length" pageSize=10
   (page)="getPaginatorData($event)" [pageSizeOptions]="[10, 20, 50]"
   showFirstLastButtons="true">
 </mat-paginator>
 </ng-template>
-
 <mat-list>
+
 <div class='main-content-div'>
   <app-shopping-cart [itemsInCart]='foodBeveragesInCart'></app-shopping-cart>
 
   <section class="cards">
-
     <article class="card card" *ngFor='let product of products | slice: lowValue : highValue; let i = index'>
       <div class="card__info-hover">
         <svg class="card__like"  viewBox="0 0 24 24">
@@ -22,10 +22,12 @@
           </div>
 
       </div>
-      <div class="card__img" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{product.index.integerValue}}.jpg');"></div>
+      <ng-template [ngIf]='products'>
+        <div class="card__img" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{product.index.integerValue}}.jpg');"></div>
       <a href="#" class="card_link">
          <div class="card__img--hover" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{product.index.integerValue}}.jpg');"></div>
        </a>
+      </ng-template>
       <div class="card__info">
         <span class="card__category">{{product.productName.stringValue}}</span>
         <h3 class="card__title">Food & Beverages</h3>

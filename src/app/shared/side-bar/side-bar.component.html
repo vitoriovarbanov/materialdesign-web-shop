@@ -34,9 +34,9 @@
           shopping_cart
           </span></a>
       </ng-template> -->
-      <ng-template [ngIf]='!showCart'>
+      <!-- <ng-template [ngIf]='!showCart'> -->
         <a class="example-spacer-right" routerLink='shop' mat-raised-button color="primary" aria-label="Shop link">Shop</a>
-      </ng-template>
+      <!-- </ng-template> -->
         <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Blog link">Blog</a>
         <ng-container *ngIf='!signedIn'>
           <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Get started</button>

@@ -10,6 +10,15 @@
        <!--  Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <button>I'm visible because I am open</button>
+    <div class="btn-container">
+      <button mat-raised-button color="accent">Default</button>
+    </div>
+    <div class="btn-container">
+      <button mat-raised-button color="accent">Price Low to High</button>
+    </div>
+    <div class="btn-container">
+      <button mat-raised-button color="accent">Price High to Low</button>
+    </div>
+
   </mat-expansion-panel>
 </mat-accordion>

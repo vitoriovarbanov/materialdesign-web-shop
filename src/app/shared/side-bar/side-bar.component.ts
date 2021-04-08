@@ -32,7 +32,6 @@ export class SideBarComponent implements OnInit {
       .subscribe(data => {
         this.signedIn = data
         if (this.signedIn === true) {
-          //debugger;
           this.checkProfilePicture = localStorage.getItem('photoURL')
           if(this.checkProfilePicture === 'null'){
             this.userPhoto.next('../../assets/profile-pic/profile.svg')
