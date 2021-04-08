@@ -23,9 +23,7 @@ export class ProductsService {
   test
   productsInCart = new BehaviorSubject(Number(localStorage.getItem('cartItems')))
 
-  constructor(private http: HttpClient) {
-    this.productsInCart.subscribe(data=>console.log(data))
-  }
+  constructor(private http: HttpClient) {}
 
   getFoodBeveragesProducsts() {
     return this.http.get<FoodProducts>('https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/foodbeverages')

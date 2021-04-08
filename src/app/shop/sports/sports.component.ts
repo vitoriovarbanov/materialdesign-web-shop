@@ -16,7 +16,6 @@ export class SportsComponent implements OnInit {
     this.srvc.getSportFitnessProducts()
       .subscribe((data: SportsFitnessProducts) => {
         this.products = data
-        console.log(this.products)
       })
   }
 

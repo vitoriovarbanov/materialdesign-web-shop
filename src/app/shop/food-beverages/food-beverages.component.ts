@@ -17,7 +17,6 @@ export class FoodBeveragesComponent implements OnInit {
      this.srvc.getFoodBeveragesProducsts()
       .subscribe((data: FoodProducts)=>{
         this.products = data
-        console.log(this.products)
       })
   }
 
