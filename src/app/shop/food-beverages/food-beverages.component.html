@@ -1,18 +1,4 @@
-<mat-accordion>
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Sort By
-      </mat-panel-title>
-      <mat-panel-description>
-        Default
-       <!--  Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <button>I'm visible because I am open</button>
-  </mat-expansion-panel>
-</mat-accordion>
+<app-sort-expansion-panel></app-sort-expansion-panel>
 <ng-template [ngIf]='products'>
   <mat-paginator style="background-color: #64DD17; margin: 0;" [length]="products.length" pageSize=10
   (page)="getPaginatorData($event)" [pageSizeOptions]="[10, 20, 50]"

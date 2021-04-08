@@ -10,7 +10,6 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class FoodBeveragesComponent implements OnInit {
   products
-  panelOpenState = false;
   foodBeveragesInCart
 
   constructor(private srvc: ProductsService) {

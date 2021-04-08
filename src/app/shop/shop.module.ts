@@ -9,10 +9,11 @@ import { SportsComponent } from './sports/sports.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './safe.pipe';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { SortExpansionPanelComponent } from './sort-expansion-panel/sort-expansion-panel.component';
 
 
 @NgModule({
-  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe, ShoppingCartComponent],
+  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe, ShoppingCartComponent, SortExpansionPanelComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,
