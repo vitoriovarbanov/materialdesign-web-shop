@@ -4,21 +4,25 @@
 .mat-expansion-panel{
   background-color: #64DD17;
 }
+.mat-expansion-panel-header{
+ flex-direction: column;
+}
+
+.mat-panel-title{
+  font-size: 18px !important;
+  justify-content: flex-start;
+}
+
+.mat-list-base{
+  padding: 0;
+}
 
 .main-content-div{
   background-image: url(../../../assets/products-background/1920.svg);
-  min-height: 100vh;
+  min-height: 80vh;
 }
-
-.shopping-cart-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
-}
-
 .cards {
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   margin: 0 auto;
     display: flex;
     flex-wrap: wrap;

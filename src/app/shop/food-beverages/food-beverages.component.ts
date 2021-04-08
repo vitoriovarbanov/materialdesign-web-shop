@@ -11,7 +11,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class FoodBeveragesComponent implements OnInit {
   products
   panelOpenState = false;
-
+  foodBeveragesInCart
 
   constructor(private srvc: ProductsService) {
      this.srvc.getFoodBeveragesProducsts()
@@ -25,13 +25,19 @@ export class FoodBeveragesComponent implements OnInit {
   }
 
   lowValue: number = 0;
-  highValue: number = 5;
+  highValue: number = 10;
 
   // used to build an array of papers relevant at any given time
   public getPaginatorData(event: PageEvent): PageEvent {
     this.lowValue = event.pageIndex * event.pageSize;
     this.highValue = this.lowValue + event.pageSize;
     return event;
+  }
+
+  addItemsToCart(){
+    this.srvc.productsInCart
+      .subscribe(data=>this.foodBeveragesInCart=data)
+    this.srvc.productsInCart.next(this.foodBeveragesInCart+1)
   }
 
 }

@@ -13,13 +13,17 @@
     <button>I'm visible because I am open</button>
   </mat-expansion-panel>
 </mat-accordion>
+<ng-template [ngIf]='products'>
+  <mat-paginator style="background-color: #64DD17; margin: 0;" [length]="products.length" pageSize=10
+  (page)="getPaginatorData($event)" [pageSizeOptions]="[10, 20, 50]"
+  showFirstLastButtons="true">
+</mat-paginator>
+</ng-template>
 
+<mat-list>
 <div class='main-content-div'>
-  <div class="shopping-cart-container">
-    <a routerLink='/' class="fking-icons"><span class="material-icons" matBadge="0" matBadgeColor="warn" style="font-size: 36px; color: white;">
-      shopping_cart
-      </span></a>
-  </div>
+  <app-shopping-cart [itemsInCart]='foodBeveragesInCart'></app-shopping-cart>
+
   <section class="cards">
 
     <article class="card card" *ngFor='let product of products | slice: lowValue : highValue; let i = index'>
@@ -32,24 +36,19 @@
           </div>
 
       </div>
-      <div class="card__img" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{highValue-i}}.jpg');"></div>
+      <div class="card__img" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{product.index.integerValue}}.jpg');"></div>
       <a href="#" class="card_link">
-         <div class="card__img--hover" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{highValue-i}}.jpg');"></div>
+         <div class="card__img--hover" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{product.index.integerValue}}.jpg');"></div>
        </a>
       <div class="card__info">
         <span class="card__category">{{product.productName.stringValue}}</span>
         <h3 class="card__title">Food & Beverages</h3>
-        <button mat-flat-button color="primary">Add to cart</button>
+        <button mat-flat-button color="primary" (click)='addItemsToCart()'>Add to cart</button>
         <span class="card__by"><a href="#" class="card__price" title="price" style="font-size: 28px; padding-left: 15px;">{{product.price.doubleValue}}$</a></span>
       </div>
     </article>
   </section>
 </div>
-<mat-paginator [length]="products.length" pageSize=5
-               (page)="getPaginatorData($event)" [pageSizeOptions]="[5, 10, 20]"
-               showFirstLastButtons="true">
-</mat-paginator>
-<mat-list>
 
 
 

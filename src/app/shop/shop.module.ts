@@ -8,10 +8,11 @@ import { FoodBeveragesComponent } from './food-beverages/food-beverages.componen
 import { SportsComponent } from './sports/sports.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './safe.pipe';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 @NgModule({
-  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe],
+  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe, ShoppingCartComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,
