@@ -9,7 +9,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class SportsComponent implements OnInit {
   products
-  sportsFitnessProducts
+  sportsFitnessProducts = Number(localStorage.getItem('cartItems'))
+  count
 
   constructor(private srvc: ProductsService) {
     this.srvc.getSportFitnessProducts()
@@ -32,9 +33,23 @@ export class SportsComponent implements OnInit {
     return event;
   }
 
-  addItemsToCart() {
+  addItemsToCart(){
+    let str_count = localStorage.getItem("cartItems");
+    //get a numeric value from str_count, put it in count
+    if (str_count == null || str_count == "null"){
+      this.count = 0;
+    } else {
+      this.count = parseInt(str_count);
+    } // end if
+    //increment count
+    this.count++;
+    //display count
+    //store count
+    localStorage.setItem("cartItems", this.count);
     this.srvc.productsInCart
-      .subscribe(data => this.sportsFitnessProducts = data)
-    this.srvc.productsInCart.next(this.sportsFitnessProducts + 1)
+      .subscribe(data=>{
+        this.sportsFitnessProducts = Number(localStorage.getItem('cartItems'))
+      })
+    this.srvc.productsInCart.next(Number(localStorage.getItem('cartItems')))
   }
 }

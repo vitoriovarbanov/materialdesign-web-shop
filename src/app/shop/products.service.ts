@@ -21,9 +21,11 @@ export interface SportsFitnessProducts {
 export class ProductsService {
   databaseUrl = 'https://health-web-shop.firebaseio.com'
   test
-  productsInCart = new BehaviorSubject(0)
+  productsInCart = new BehaviorSubject(Number(localStorage.getItem('cartItems')))
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.productsInCart.subscribe(data=>console.log(data))
+  }
 
   getFoodBeveragesProducsts() {
     return this.http.get<FoodProducts>('https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/foodbeverages')
