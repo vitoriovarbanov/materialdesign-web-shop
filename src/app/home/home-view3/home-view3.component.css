@@ -65,13 +65,19 @@ svg{
 
 .showcase-container-right{
   color: white;
-  background-color: #00796B;
+  /* background-color: #00796b; */
+  background-image: url(../../../assets/home-top/backgrounds/home1920.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 50%;
+
 }
 
 .text-container-right{
@@ -129,3 +135,8 @@ svg{
   }
 }
 
+@media screen and (max-width: 900px) {
+  .showcase-container-right{
+    background-image: url(../../../assets/home-top/backgrounds/1024home.svg);
+  }
+}

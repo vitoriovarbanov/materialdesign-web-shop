@@ -38,7 +38,7 @@
         <a class="example-spacer-right" routerLink='shop' mat-raised-button color="primary" aria-label="Shop link">Shop</a>
       <!-- </ng-template> -->
         <a class="example-spacer-right" routerLink='auth/login' mat-raised-button color="primary" aria-label="Blog link">Blog</a>
-        <ng-container *ngIf='!signedIn'>
+        <ng-template [ngIf]='!signedIn'>
           <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="settingsMenu" matTooltip="Login/Register">Get started</button>
           <mat-menu #settingsMenu>
           <ng-template matMenuContent>
@@ -46,7 +46,7 @@
             <menu mat-menu-item><a routerLink='auth/register' mat-raised-button color="accent" aria-label="Register link">Register</a></menu>
           </ng-template>
         </mat-menu>
-        </ng-container>
+        </ng-template>
         <ng-container *ngIf='signedIn'>
           <button class="example-spacer-right" type="button" mat-raised-button color="primary" [matMenuTriggerFor]="accountMenu" matTooltip="Profile/Log Out">Account
             <ng-container *ngIf='photo'>
