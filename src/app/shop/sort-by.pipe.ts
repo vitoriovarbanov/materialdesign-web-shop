@@ -17,12 +17,20 @@ export class SortByPipe implements PipeTransform {
         return Number(firstElement[0]) - Number(secondElement[0])
       })
     } */
-    console.log(array)
-    return array.sort((a,b)=>{
-      let firstElement = a.price.doubleValue
-      let secondElement = b.price.doubleValue
-      return firstElement-secondElement
-    })
-  }
+    console.log(criteria)
+    if(criteria==='hightolow'){
+      return array.sort((a,b)=>{
+        let firstElement = a.price.doubleValue
+        let secondElement = b.price.doubleValue
+        return secondElement-firstElement
+      })
+    }else{
+      return array.sort((a,b)=>{
+        let firstElement = a.price.doubleValue
+        let secondElement = b.price.doubleValue
+        return firstElement-secondElement
+      })
+    }
 
+  }
 }
