@@ -11,13 +11,13 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <div class="btn-container">
-      <button mat-raised-button color="accent">Default</button>
+      <button mat-raised-button color="accent" (click)='sortLowToHigh(sortCriteriaDef)'>Default</button>
     </div>
     <div class="btn-container">
-      <button mat-raised-button color="accent" (click)='sortLowToHigh(sortCrit)'>Price Low to High</button>
+      <button mat-raised-button color="accent" (click)='sortLowToHigh(sortCriteriaLowHigh)'>Price Low to High</button>
     </div>
     <div class="btn-container">
-      <button mat-raised-button color="accent" (click)='sortLowToHigh(sortCrit2)'>Price High to Low</button>
+      <button mat-raised-button color="accent" (click)='sortLowToHigh(sortCriteriaHighLow)'>Price High to Low</button>
     </div>
 
   </mat-expansion-panel>

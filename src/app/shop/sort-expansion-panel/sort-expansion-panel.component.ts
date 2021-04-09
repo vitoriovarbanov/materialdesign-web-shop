@@ -8,8 +8,9 @@ import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 })
 export class SortExpansionPanelComponent implements OnInit {
   panelOpenState = false;
-  sortCrit = 'lowtohigh'
-  sortCrit2 = 'hightolow'
+  sortCriteriaDef:string = 'default'
+  sortCriteriaLowHigh:string = 'lowtohigh'
+  sortCriteriaHighLow:string = 'hightolow'
   @Output() sortItemsLowHigh = new EventEmitter<any>()
 
   constructor() { }

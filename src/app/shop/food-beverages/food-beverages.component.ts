@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { FoodProducts } from '../products.service'
 import { PageEvent } from '@angular/material/paginator';
-
+import { SortByPipe } from '../sort-by.pipe'
 @Component({
   selector: 'app-food-beverages',
   templateUrl: './food-beverages.component.html',
@@ -12,10 +12,11 @@ export class FoodBeveragesComponent implements OnInit {
   products
   foodBeveragesInCart = Number(localStorage.getItem('cartItems'))
   count
+  sortCriteria: string = 'default'
 
   constructor(private srvc: ProductsService) {
-     this.srvc.getFoodBeveragesProducsts()
-      .subscribe((data: FoodProducts)=>{
+    this.srvc.getFoodBeveragesProducsts()
+      .subscribe((data: FoodProducts) => {
         this.products = data
       })
   }
@@ -33,10 +34,10 @@ export class FoodBeveragesComponent implements OnInit {
     return event;
   }
 
-  addItemsToCart(){
+  addItemsToCart() {
     let str_count = localStorage.getItem("cartItems");
     //get a numeric value from str_count, put it in count
-    if (str_count == null || str_count == "null"){
+    if (str_count == null || str_count == "null") {
       this.count = 0;
     } else {
       this.count = parseInt(str_count);
@@ -47,21 +48,15 @@ export class FoodBeveragesComponent implements OnInit {
     //store count
     localStorage.setItem("cartItems", this.count);
     this.srvc.productsInCart
-      .subscribe(data=>{
+      .subscribe(data => {
         this.foodBeveragesInCart = Number(localStorage.getItem('cartItems'))
       })
     this.srvc.productsInCart.next(Number(localStorage.getItem('cartItems')))
   }
 
-  sortItems(e){
-    /* let items = Array.from(document.getElementsByClassName('card card'));
-    console.log(items)
-    let sortedItems = items.sort((a,b)=>{
-      let firstElement = a.childNodes[4].childNodes[3].firstChild.textContent.split('$')
-      let secondElement = b.childNodes[4].childNodes[3].firstChild.textContent.split('$')
-      return Number(firstElement[0]) - Number(secondElement[0])
-    })
-    console.log(sortedItems) */
+
+  sortItems(e) {
+    this.sortCriteria = e;
   }
 
 }
