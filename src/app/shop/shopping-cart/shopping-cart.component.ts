@@ -17,7 +17,7 @@ export class ShoppingCartComponent implements OnInit {
   emptyCart(){
     localStorage.setItem("cartItems", '0');
     localStorage.setItem("cartSum", '0');
-    this.srvc.productsInCart.next(0)
-    this.srvc.sumInCartt.next(0)
+    this.srvc.productsInCart$.next(0)
+    this.srvc.cartItemsSum$.next(0)
   }
 }

@@ -19,10 +19,10 @@ export interface SportsFitnessProducts {
   providedIn: 'root'
 })
 export class ProductsService {
-  databaseUrl = 'https://health-web-shop.firebaseio.com'
+  databaseUrl:string = 'https://health-web-shop.firebaseio.com'
   test
-  productsInCart = new BehaviorSubject(Number(localStorage.getItem('cartItems')))
-  sumInCartt = new BehaviorSubject(Number(localStorage.getItem('cartSum')))
+  productsInCart$ = new BehaviorSubject(Number(localStorage.getItem('cartItems')))
+  cartItemsSum$ = new BehaviorSubject(Number(localStorage.getItem('cartSum')))
 
 
   constructor(private http: HttpClient) {}
@@ -39,6 +39,30 @@ export class ProductsService {
       .pipe(map(data => {
         return data['documents'].map(x => x['fields'])
       }))
+  }
+
+  //INCREASING COUNTER & SUM WHEN ADDING NEW ITEMS IN CART
+  count: any
+  sum: any
+  updateCart(e) {
+    let str_sum = localStorage.getItem("cartSum");
+    let str_count = localStorage.getItem("cartItems");
+    //get a numeric value from str_count, put it in count
+    if (str_count == null || str_count == "null" || str_sum == null || str_sum == "null") {
+      this.count = 0;
+    } else {
+      this.count = parseInt(str_count);
+      this.sum = parseInt(str_sum)
+    } // end if
+    //increment count
+    this.sum += e;
+    this.count++;
+    //display count
+    //store count
+    localStorage.setItem("cartSum", this.sum);
+    localStorage.setItem("cartItems", this.count);
+    this.productsInCart$.next(this.count)
+    this.cartItemsSum$.next(this.sum)
   }
 
 }

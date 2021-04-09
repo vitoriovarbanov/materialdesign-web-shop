@@ -9,7 +9,7 @@
 <mat-list>
 
 <div class='main-content-div'>
-  <app-shopping-cart [itemsInCart]='foodBeveragesInCart'></app-shopping-cart>
+  <app-shopping-cart [itemsInCart]='foodBeveragesInCart' [itemsSum]='sumInCart'></app-shopping-cart>
 
   <section class="cards">
     <ng-template [ngIf]='products'>

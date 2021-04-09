@@ -9,8 +9,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class SportsComponent implements OnInit {
   products
-  sportsFitnessProducts = Number(localStorage.getItem('cartItems'))
-  count
+  sportsFitnessProducts: number
+  sumInCart: number;
   sortCriteria: string = 'default'
 
   constructor(private srvc: ProductsService) {
@@ -18,39 +18,31 @@ export class SportsComponent implements OnInit {
       .subscribe((data: SportsFitnessProducts) => {
         this.products = data
       })
+    this.srvc.productsInCart$.subscribe(data => {
+      this.sportsFitnessProducts = data
+    })
   }
 
   ngOnInit(): void {
   }
 
+  // used to build an array of papers relevant at any given time
   lowValue: number = 0;
   highValue: number = 10;
-
-  // used to build an array of papers relevant at any given time
   public getPaginatorData(event: PageEvent): PageEvent {
     this.lowValue = event.pageIndex * event.pageSize;
     this.highValue = this.lowValue + event.pageSize;
     return event;
   }
 
-  addItemsToCart(){
-    let str_count = localStorage.getItem("cartItems");
-    //get a numeric value from str_count, put it in count
-    if (str_count == null || str_count == "null"){
-      this.count = 0;
-    } else {
-      this.count = parseInt(str_count);
-    } // end if
-    //increment count
-    this.count++;
-    //display count
-    //store count
-    localStorage.setItem("cartItems", this.count);
-    this.srvc.productsInCart
-      .subscribe(data=>{
-        this.sportsFitnessProducts = Number(localStorage.getItem('cartItems'))
-      })
-    this.srvc.productsInCart.next(Number(localStorage.getItem('cartItems')))
+  addItemsToCart(e) {
+    this.srvc.updateCart(e)
+    this.srvc.productsInCart$.subscribe(data=>{
+      this.sportsFitnessProducts = data
+    })
+    this.srvc.cartItemsSum$.subscribe(data=>{
+      this.sumInCart = data
+    })
   }
 
   sortItems(e) {
