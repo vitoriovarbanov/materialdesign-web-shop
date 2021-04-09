@@ -53,4 +53,15 @@ export class FoodBeveragesComponent implements OnInit {
     this.srvc.productsInCart.next(Number(localStorage.getItem('cartItems')))
   }
 
+  sortItems(e){
+    /* let items = Array.from(document.getElementsByClassName('card card'));
+    console.log(items)
+    let sortedItems = items.sort((a,b)=>{
+      let firstElement = a.childNodes[4].childNodes[3].firstChild.textContent.split('$')
+      let secondElement = b.childNodes[4].childNodes[3].firstChild.textContent.split('$')
+      return Number(firstElement[0]) - Number(secondElement[0])
+    })
+    console.log(sortedItems) */
+  }
+
 }

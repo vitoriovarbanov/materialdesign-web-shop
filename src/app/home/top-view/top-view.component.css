@@ -96,6 +96,15 @@ svg {
   padding-top: 10px;
 }
 
+/* .wrapper{
+  border: 0.2px solid red;
+  border-radius: 20px;
+}
+
+.social-network-tab .wrapper:hover{
+  width: 200px;
+} */
+
 /******** MEDIA QUERIES *******/
 
 @media screen and (min-width: 1600px) {
@@ -281,3 +290,5 @@ svg {
     animation-fill-mode: forwards;
   }
 }
+
+
