@@ -7,14 +7,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SortByPipe implements PipeTransform {
 
   transform(array: any, criteria: string): any[] {
-    console.log(criteria)
-    if(criteria==='hightolow'){
+    if(criteria==='Price High to Low'){
       return array.sort((a,b)=>{
         let firstElement = a.price.doubleValue
         let secondElement = b.price.doubleValue
         return secondElement-firstElement
       })
-    }else if(criteria==='lowtohigh'){
+    }else if(criteria==='Price Low to High'){
       return array.sort((a,b)=>{
         let firstElement = a.price.doubleValue
         let secondElement = b.price.doubleValue

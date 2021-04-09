@@ -11,7 +11,6 @@ import { SortByPipe } from '../sort-by.pipe'
 export class FoodBeveragesComponent implements OnInit {
   products
   foodBeveragesInCart = Number(localStorage.getItem('cartItems'))
-  count
   sortCriteria: string = 'default'
 
   constructor(private srvc: ProductsService) {
@@ -24,6 +23,7 @@ export class FoodBeveragesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //PAGINATOR SETTINGS,VISIBLE ITEMS PER PAGES
   lowValue: number = 0;
   highValue: number = 10;
 
@@ -34,6 +34,8 @@ export class FoodBeveragesComponent implements OnInit {
     return event;
   }
 
+  //INCREASING COUNTER WHEN ADDING NEW ITEMS IN CART
+  count:any
   addItemsToCart() {
     let str_count = localStorage.getItem("cartItems");
     //get a numeric value from str_count, put it in count

@@ -11,6 +11,7 @@ export class SportsComponent implements OnInit {
   products
   sportsFitnessProducts = Number(localStorage.getItem('cartItems'))
   count
+  sortCriteria: string = 'default'
 
   constructor(private srvc: ProductsService) {
     this.srvc.getSportFitnessProducts()
@@ -50,5 +51,9 @@ export class SportsComponent implements OnInit {
         this.sportsFitnessProducts = Number(localStorage.getItem('cartItems'))
       })
     this.srvc.productsInCart.next(Number(localStorage.getItem('cartItems')))
+  }
+
+  sortItems(e) {
+    this.sortCriteria = e;
   }
 }
