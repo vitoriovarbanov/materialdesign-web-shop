@@ -22,6 +22,8 @@ export class ProductsService {
   databaseUrl = 'https://health-web-shop.firebaseio.com'
   test
   productsInCart = new BehaviorSubject(Number(localStorage.getItem('cartItems')))
+  sumInCartt = new BehaviorSubject(Number(localStorage.getItem('cartSum')))
+
 
   constructor(private http: HttpClient) {}
 
@@ -38,4 +40,5 @@ export class ProductsService {
         return data['documents'].map(x => x['fields'])
       }))
   }
+
 }

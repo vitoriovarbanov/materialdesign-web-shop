@@ -17,12 +17,12 @@ export class ShopHomeComponent implements OnInit {
 
   images = [
     { src: "../../../assets/shop-home/categories/8.jpg", alt: 'display-alt-text-here', text: 'Food and Beverages', link: 'foodbvg' },
-    { src: "../../../assets/shop-home/categories/9.jpg", alt: 'display-alt-text-here', text: 'Herbs and Botanicals', link: 'foodbvg' },
-    { src: "../../../assets/shop-home/categories/10.jpg", alt: 'display-alt-text-here', text: 'Beauty and Personal care', link: 'foodbvg' },
+    { src: "../../../assets/shop-home/categories/9.jpg", alt: 'display-alt-text-here', text: 'Herbs and Botanicals', link: '' },
+    { src: "../../../assets/shop-home/categories/10.jpg", alt: 'display-alt-text-here', text: 'Beauty and Personal care', link: '' },
     { src: "../../../assets/shop-home/categories/5.jpg", alt: 'display-alt-text-here', text: 'Sports and Fitness', link: 'sports' },
-    { src: "../../../assets/shop-home/categories/11.jpg", alt: 'display-alt-text-here', text: 'Vitamins and Supplements', link: 'foodbvg' },
-    { src: "../../../assets/shop-home/categories/12.jpg", alt: 'display-alt-text-here', text: 'Superfoods', link: 'foodbvg' },
-    { src: "../../../assets/shop-home/categories/13.jpg", alt: 'display-alt-text-here', text: 'Diet', link: 'foodbvg' },
+    { src: "../../../assets/shop-home/categories/11.jpg", alt: 'display-alt-text-here', text: 'Vitamins and Supplements', link: '' },
+    { src: "../../../assets/shop-home/categories/12.jpg", alt: 'display-alt-text-here', text: 'Superfoods', link: '' },
+    { src: "../../../assets/shop-home/categories/13.jpg", alt: 'display-alt-text-here', text: 'Diet', link: '' },
   ]
 
   constructor( private firestoreDatabase: AngularFirestore, private http: HttpClient) {

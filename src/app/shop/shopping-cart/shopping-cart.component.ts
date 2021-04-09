@@ -8,6 +8,7 @@ import { ProductsService } from '../products.service';
 })
 export class ShoppingCartComponent implements OnInit {
   @Input() itemsInCart
+  @Input() itemsSum
   constructor(private srvc: ProductsService) { }
 
   ngOnInit(): void {
@@ -15,6 +16,8 @@ export class ShoppingCartComponent implements OnInit {
 
   emptyCart(){
     localStorage.setItem("cartItems", '0');
+    localStorage.setItem("cartSum", '0');
     this.srvc.productsInCart.next(0)
+    this.srvc.sumInCartt.next(0)
   }
 }

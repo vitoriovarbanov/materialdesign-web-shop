@@ -11,6 +11,7 @@ import { SortByPipe } from '../sort-by.pipe'
 export class FoodBeveragesComponent implements OnInit {
   products
   foodBeveragesInCart = Number(localStorage.getItem('cartItems'))
+  sumInCart = Number(localStorage.getItem('cartSum'))
   sortCriteria: string = 'default'
 
   constructor(private srvc: ProductsService) {
@@ -34,26 +35,36 @@ export class FoodBeveragesComponent implements OnInit {
     return event;
   }
 
-  //INCREASING COUNTER WHEN ADDING NEW ITEMS IN CART
-  count:any
-  addItemsToCart() {
+  //INCREASING COUNTER & SUM WHEN ADDING NEW ITEMS IN CART
+  count: any
+  sum: any
+  addItemsToCart(e) {
+    let str_sum = localStorage.getItem("cartSum");
     let str_count = localStorage.getItem("cartItems");
     //get a numeric value from str_count, put it in count
-    if (str_count == null || str_count == "null") {
+    if (str_count == null || str_count == "null" || str_sum == null || str_sum == "null") {
       this.count = 0;
     } else {
       this.count = parseInt(str_count);
+      this.sum = parseInt(str_sum)
     } // end if
     //increment count
+    this.sum += e;
     this.count++;
     //display count
     //store count
+    localStorage.setItem("cartSum", this.sum);
     localStorage.setItem("cartItems", this.count);
     this.srvc.productsInCart
       .subscribe(data => {
         this.foodBeveragesInCart = Number(localStorage.getItem('cartItems'))
       })
+    this.srvc.sumInCartt
+      .subscribe(data => {
+        this.sumInCart = Number(localStorage.getItem('cartSum'))
+      })
     this.srvc.productsInCart.next(Number(localStorage.getItem('cartItems')))
+    this.srvc.sumInCartt.next(Number(localStorage.getItem('cartSum')))
   }
 
 

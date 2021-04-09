@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -8,9 +8,9 @@ import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 })
 export class SortExpansionPanelComponent implements OnInit {
   panelOpenState = false;
-  sortCriteriaDef:string = 'Default'
-  sortCriteriaLowHigh:string = 'Price Low to High'
-  sortCriteriaHighLow:string = 'Price High to Low'
+  sortCriteriaDef: string = 'Default'
+  sortCriteriaLowHigh: string = 'Price Low to High'
+  sortCriteriaHighLow: string = 'Price High to Low'
   currentSortingCriteria: string = 'Default';
   @Output() outputSortItemsEvent = new EventEmitter<any>()
 
@@ -19,13 +19,9 @@ export class SortExpansionPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sortProductItems(sortCriteria){
+  sortProductItems(sortCriteria) {
     this.outputSortItemsEvent.emit(sortCriteria)
     this.currentSortingCriteria = sortCriteria
   }
-
- /*  changeHeaderSortCriteria(){
-    this.currentSortingCriteria =
-  } */
 
 }
