@@ -35,8 +35,8 @@ export class SportsComponent implements OnInit {
     return event;
   }
 
-  addItemsToCart(e) {
-    this.srvc.updateCart(e)
+  addItemsToCart(priceOfItem,nameOfItem) {
+    this.srvc.updateCart(priceOfItem,nameOfItem)
     this.srvc.productsInCart$.subscribe(data=>{
       this.sportsFitnessProducts = data
     })

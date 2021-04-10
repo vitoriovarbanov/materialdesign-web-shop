@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { FoodProducts } from '../products.service'
 import { PageEvent } from '@angular/material/paginator';
-import { SortByPipe } from '../sort-by.pipe'
+
+
 @Component({
   selector: 'app-food-beverages',
   templateUrl: './food-beverages.component.html',
@@ -22,9 +23,6 @@ export class FoodBeveragesComponent implements OnInit {
       this.srvc.productsInCart$.subscribe(data=>{
         this.foodBeveragesInCart = data
       })
-      /* this.srvc.cartItemsSum.subscribe(data=>{
-        this.sumInCart = data
-      }) */
   }
 
   ngOnInit(): void {
@@ -41,8 +39,9 @@ export class FoodBeveragesComponent implements OnInit {
     return event;
   }
 
-  addItemsToCart(e) {
-    this.srvc.updateCart(e)
+  addItemsToCart(priceOfItem,nameOfItem) {
+    console.log(priceOfItem)
+    this.srvc.updateCart(priceOfItem,nameOfItem)
     this.srvc.productsInCart$.subscribe(data=>{
       this.foodBeveragesInCart = data
     })

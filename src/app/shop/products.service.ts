@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { pluck, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import firebase  from 'firebase/app'
+
+
 
 export interface FoodProducts {
   price: { doubleValue: number };
@@ -19,13 +23,13 @@ export interface SportsFitnessProducts {
   providedIn: 'root'
 })
 export class ProductsService {
-  databaseUrl:string = 'https://health-web-shop.firebaseio.com'
+  databaseUrl: string = 'https://health-web-shop.firebaseio.com'
   test
   productsInCart$ = new BehaviorSubject(Number(localStorage.getItem('cartItems')))
   cartItemsSum$ = new BehaviorSubject(Number(localStorage.getItem('cartSum')))
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private firestoreDb: AngularFirestore) { }
 
   getFoodBeveragesProducsts() {
     return this.http.get<FoodProducts>('https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/foodbeverages')
@@ -34,7 +38,7 @@ export class ProductsService {
       }))
   }
 
-  getSportFitnessProducts(){
+  getSportFitnessProducts() {
     return this.http.get<SportsFitnessProducts>('https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/sports')
       .pipe(map(data => {
         return data['documents'].map(x => x['fields'])
@@ -44,7 +48,7 @@ export class ProductsService {
   //INCREASING COUNTER & SUM WHEN ADDING NEW ITEMS IN CART
   count: any
   sum: any
-  updateCart(e) {
+  updateCart(priceOfItem,nameOfItem) {
     let str_sum = localStorage.getItem("cartSum");
     let str_count = localStorage.getItem("cartItems");
     //get a numeric value from str_count, put it in count
@@ -54,8 +58,18 @@ export class ProductsService {
       this.count = parseInt(str_count);
       this.sum = parseInt(str_sum)
     } // end if
+     // Add a new document in collection "users"
+     this.firestoreDb.collection("users").doc(localStorage.getItem('uid')).update({
+      cartItems: firebase.firestore.FieldValue.arrayUnion({priceOfItem,nameOfItem,quantity:this.count})//[],
+    })
+      .then(() => {
+        console.log("Document successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
     //increment count
-    this.sum += e;
+    this.sum += priceOfItem;
     this.count++;
     //display count
     //store count
