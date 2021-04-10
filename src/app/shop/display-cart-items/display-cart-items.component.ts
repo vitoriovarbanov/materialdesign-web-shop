@@ -7,10 +7,10 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./display-cart-items.component.css']
 })
 export class DisplayCartItemsComponent implements OnInit {
-
+  itemsInCart
   constructor(private srvc: ProductsService) {
     const test = this.srvc.getUserCurrentItemsInCart()
-    test.subscribe(data=>console.log(data))
+    test.subscribe(data=>this.itemsInCart=data)
   }
 
   ngOnInit(): void {
