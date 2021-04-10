@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-display-cart-items',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayCartItemsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private srvc: ProductsService) {
+    const test = this.srvc.getUserCurrentItemsInCart()
+    test.subscribe(data=>console.log(data))
+  }
 
   ngOnInit(): void {
   }

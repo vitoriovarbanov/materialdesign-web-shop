@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { pluck, map } from 'rxjs/operators';
+import { pluck, map, take } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import firebase  from 'firebase/app'
+import firebase from 'firebase/app'
 
 
 
@@ -45,11 +45,19 @@ export class ProductsService {
       }))
   }
 
+  getUserCurrentItemsInCart() {
+    return this.firestoreDb.doc(`users/${localStorage.getItem('uid')}`).valueChanges()
+      .pipe(take(1),
+        map(data => {
+          return data['cartItems']
+        }))
+  }
+
   //INCREASING COUNTER & SUM WHEN ADDING NEW ITEMS IN CART
   count: any
   sum: any
   addedItems: number = 1;
-  updateCart(priceOfItem,nameOfItem,productIndex) {
+  updateCart(priceOfItem, nameOfItem, productIndex) {
     let str_sum = localStorage.getItem("cartSum");
     let str_count = localStorage.getItem("cartItems");
     //get a numeric value from str_count, put it in count
@@ -60,9 +68,9 @@ export class ProductsService {
       this.sum = parseInt(str_sum)
     }
 
-     // Add a new document in collection "users"
-     this.firestoreDb.collection("users").doc(localStorage.getItem('uid')).update({
-      cartItems: firebase.firestore.FieldValue.arrayUnion({priceOfItem,nameOfItem,productIndex,quantity:this.addedItems++})//[],
+    // Add a new document in collection "users"
+    this.firestoreDb.collection("users").doc(localStorage.getItem('uid')).update({
+      cartItems: firebase.firestore.FieldValue.arrayUnion({ priceOfItem, nameOfItem, productIndex, quantity: this.addedItems++ })//[],
     })
       .then(() => {
         console.log("Document successfully written!");
