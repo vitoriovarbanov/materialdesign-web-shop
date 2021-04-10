@@ -39,9 +39,9 @@ export class FoodBeveragesComponent implements OnInit {
     return event;
   }
 
-  addItemsToCart(priceOfItem,nameOfItem) {
+  addItemsToCart(priceOfItem,nameOfItem,productIndex) {
     console.log(priceOfItem)
-    this.srvc.updateCart(priceOfItem,nameOfItem)
+    this.srvc.updateCart(priceOfItem,nameOfItem,productIndex)
     this.srvc.productsInCart$.subscribe(data=>{
       this.foodBeveragesInCart = data
     })

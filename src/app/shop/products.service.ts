@@ -48,7 +48,8 @@ export class ProductsService {
   //INCREASING COUNTER & SUM WHEN ADDING NEW ITEMS IN CART
   count: any
   sum: any
-  updateCart(priceOfItem,nameOfItem) {
+  addedItems: number = 1;
+  updateCart(priceOfItem,nameOfItem,productIndex) {
     let str_sum = localStorage.getItem("cartSum");
     let str_count = localStorage.getItem("cartItems");
     //get a numeric value from str_count, put it in count
@@ -57,10 +58,11 @@ export class ProductsService {
     } else {
       this.count = parseInt(str_count);
       this.sum = parseInt(str_sum)
-    } // end if
+    }
+
      // Add a new document in collection "users"
      this.firestoreDb.collection("users").doc(localStorage.getItem('uid')).update({
-      cartItems: firebase.firestore.FieldValue.arrayUnion({priceOfItem,nameOfItem,quantity:this.count})//[],
+      cartItems: firebase.firestore.FieldValue.arrayUnion({priceOfItem,nameOfItem,productIndex,quantity:this.addedItems++})//[],
     })
       .then(() => {
         console.log("Document successfully written!");
@@ -68,6 +70,8 @@ export class ProductsService {
       .catch((error) => {
         console.error("Error writing document: ", error);
       });
+    //
+
     //increment count
     this.sum += priceOfItem;
     this.count++;

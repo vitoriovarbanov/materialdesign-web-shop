@@ -11,10 +11,11 @@ import { SafePipe } from './safe.pipe';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SortExpansionPanelComponent } from './sort-expansion-panel/sort-expansion-panel.component';
 import { SortByPipe } from './sort-by.pipe';
+import { DisplayCartItemsComponent } from './display-cart-items/display-cart-items.component';
 
 
 @NgModule({
-  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe, ShoppingCartComponent, SortExpansionPanelComponent, SortByPipe],
+  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe, ShoppingCartComponent, SortExpansionPanelComponent, SortByPipe, DisplayCartItemsComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,
