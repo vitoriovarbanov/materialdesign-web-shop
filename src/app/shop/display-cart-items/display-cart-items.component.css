@@ -21,6 +21,10 @@
   background-color: #00796b;
 }
 
+.matColumnDef{
+  background-color: red;
+}
+
 .right-side-container{
   width: 50%;
  border: 1px solid yellow;

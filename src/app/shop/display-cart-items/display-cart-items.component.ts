@@ -7,7 +7,7 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./display-cart-items.component.css']
 })
 export class DisplayCartItemsComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['products', 'price', 'quantity', 'total'];
   itemsInCart
 
   constructor(private srvc: ProductsService) {

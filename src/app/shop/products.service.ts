@@ -37,8 +37,31 @@ export class ProductsService {
   getUserCurrentItemsInCart() {
     return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).valueChanges()
       .pipe(take(1),
-        map(data => {
-          return data['cartItems']
+        map((data: ProductsInCart) => {
+          let unique = data.cartItems
+            .map(e => e['nameOfItem'])
+            .map((e, i, final) => final.indexOf(e) === i && i)
+            .filter(obj => data.cartItems[obj])
+            .map(e => data.cartItems[e]);
+          unique.map(x=>x.quantity=0)
+          let duplicateIds = data.cartItems
+            .map(e => e['nameOfItem'])
+            .map((e, i, final) => final.indexOf(e) !== i && i)
+            .filter(obj => data.cartItems[obj])
+            .map(e => data.cartItems[e]["nameOfItem"])
+          let duplicate = data.cartItems.filter(obj => duplicateIds.includes(obj.nameOfItem));
+          for (const iterator of duplicate) {
+            let test = unique.find(x=>x.nameOfItem===iterator.nameOfItem)
+            if(test){
+              test.quantity++
+            }
+          }
+          unique.map(x=>{
+            if(x.quantity===0){
+              return x.quantity = 1
+            }
+          })
+          return unique
         }))
   }
 
