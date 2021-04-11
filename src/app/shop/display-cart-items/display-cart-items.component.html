@@ -1,3 +1,14 @@
+<mat-toolbar>
+    <a routerLink='../foodbvg'>Food and Beverages</a>
+    <a routerLink='../sports'>Herbs and Botanicals</a>
+    <a routerLink='../sports'>Beauty and Personal care</a>
+    <a routerLink='../sports'>Sports and Fitness</a>
+    <a routerLink='../sports'>Vitamins and Supplements</a>
+    <a routerLink='../sports'>Superfoods</a>
+    <a routerLink='../sports'>Diet</a>
+</mat-toolbar>
+
+
 <div class="cart-background-container">
   <div class="flex-content-container">
     <section class="left-side-container">
@@ -35,12 +46,14 @@
         <h1>YOUR ORDER SUMMARY</h1>
         <h2>Subtotal:  40$</h2>
         <h2>Shipping:  20$</h2>
-        <button>Checkout</button>
+        <button mat-flat-button color="primary">Checkout</button>
       </div>
     </section>
   </div>
   <div style="display: flex;justify-content: center;margin-top: 10px;">
-    <button (click)='emptyCart()'>EMPTY CART</button>
+    <button class="options-buttons" mat-flat-button color="primary"(click)='emptyCart()'>Empty Cart</button>
+    <button class="options-buttons" mat-flat-button color="primary"(click)='emptyCart()'><a routerLink='../../shop'>Continue shopping</a></button>
+
   </div>
 
 </div>
