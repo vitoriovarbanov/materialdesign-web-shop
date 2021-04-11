@@ -4,27 +4,9 @@ import { map, take } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app'
-
-
-
-export interface FoodProducts {
-  price: { doubleValue: number };
-  productName: { stringValue: string };
-  index: { integerValue: number }
-}[]
-
-export interface SportsFitnessProducts {
-  price: { doubleValue: number };
-  productName: { stringValue: string };
-  index: { integerValue: number }
-}[]
-
-export interface ProductsInCart {
-  nameOfItem: string;
-  priceOfItem: number;
-  productIndex: {integerValue: string};
-  quantity: number;
-}[]
+import { FoodProducts } from './models/FoodProduts';
+import { SportsFitnessProducts } from './models/SportsFitnessProducts';
+import { ProductsInCart } from './models/ProductsInCart';
 
 @Injectable({
   providedIn: 'root'

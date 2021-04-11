@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService, SportsFitnessProducts } from '../products.service';
+import { ProductsService } from '../products.service';
+import { SportsFitnessProducts } from '../models/SportsFitnessProducts'
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
