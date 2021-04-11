@@ -1,5 +1,4 @@
 <div class="cart-background-container">
-  <button (click)='emptyCart()'>EMPTY CART</button>
   <div class="flex-content-container">
     <section class="left-side-container">
       <table mat-table [dataSource]="itemsInCart | async" class="mat-elevation-z8">
@@ -8,7 +7,7 @@
 
         <ng-container matColumnDef="products">
           <th mat-header-cell *matHeaderCellDef> Product </th>
-          <td mat-cell *matCellDef="let element"><img src="../../../assets/shop-products/food-bevarages-producsts/1.jpg" width="150" height="150" style="margin-top: 20px;"><p>{{element.nameOfItem}}</p></td>
+          <td mat-cell *matCellDef="let element"><img src="../../../assets/shop-products/food-bevarages-producsts/1.jpg" style="margin-top: 20px;"><p>{{element.nameOfItem}}</p></td>
         </ng-container>
 
         <ng-container matColumnDef="price">
@@ -32,8 +31,16 @@
 
     </section>
     <section class="right-side-container">
-      <div class="order-summary"></div>
+      <div class="order-summary">
+        <h1>YOUR ORDER SUMMARY</h1>
+        <h2>Subtotal:  40$</h2>
+        <h2>Shipping:  20$</h2>
+        <button>Checkout</button>
+      </div>
     </section>
+  </div>
+  <div style="display: flex;justify-content: center;margin-top: 10px;">
+    <button (click)='emptyCart()'>EMPTY CART</button>
   </div>
 
 </div>
