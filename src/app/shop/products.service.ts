@@ -51,9 +51,9 @@ export class ProductsService {
             .map(e => data.cartItems[e]["nameOfItem"])
           let duplicate = data.cartItems.filter(obj => duplicateIds.includes(obj.nameOfItem));
           for (const iterator of duplicate) {
-            let test = unique.find(x=>x.nameOfItem===iterator.nameOfItem)
-            if(test){
-              test.quantity++
+            let findSingleItems = unique.find(x=>x.nameOfItem===iterator.nameOfItem)
+            if(findSingleItems){
+              findSingleItems.quantity++
             }
           }
           unique.map(x=>{
