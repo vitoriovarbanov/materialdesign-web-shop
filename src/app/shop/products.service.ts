@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { pluck, map, take } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app'
@@ -17,6 +17,13 @@ export interface SportsFitnessProducts {
   price: { doubleValue: number };
   productName: { stringValue: string };
   index: { integerValue: number }
+}[]
+
+export interface ProductsInCart {
+  nameOfItem: string;
+  priceOfItem: number;
+  productIndex: {integerValue: string};
+  quantity: number;
 }[]
 
 @Injectable({
@@ -46,7 +53,7 @@ export class ProductsService {
   }
 
   getUserCurrentItemsInCart() {
-    return this.firestoreDb.doc(`users/${localStorage.getItem('uid')}`).valueChanges()
+    return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).valueChanges()
       .pipe(take(1),
         map(data => {
           return data['cartItems']

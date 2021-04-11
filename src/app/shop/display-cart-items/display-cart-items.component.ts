@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
+import { ProductsInCart } from '../products.service'
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
+/* const ELEMENT_DATA: = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
@@ -19,7 +14,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+]; */
 
 
 @Component({
@@ -29,11 +24,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DisplayCartItemsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  //dataSource = new BehaviorSubject(null);
   itemsInCart
   constructor(private srvc: ProductsService) {
-    const test = this.srvc.getUserCurrentItemsInCart()
-    test.subscribe(data=>this.itemsInCart=data)
+    this.itemsInCart = this.srvc.getUserCurrentItemsInCart()
+      /* .subscribe((data: ProductsInCart)=>{
+      this.itemsInCart=data
+      console.log(this.itemsInCart)
+    }) */
   }
 
   ngOnInit(): void {
