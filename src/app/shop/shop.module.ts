@@ -12,10 +12,12 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SortExpansionPanelComponent } from './sort-expansion-panel/sort-expansion-panel.component';
 import { SortByPipe } from './sort-by.pipe';
 import { DisplayCartItemsComponent } from './display-cart-items/display-cart-items.component';
+import { CategoriesNavbarComponent } from './categories-navbar/categories-navbar.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 @NgModule({
-  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe, ShoppingCartComponent, SortExpansionPanelComponent, SortByPipe, DisplayCartItemsComponent],
+  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe, ShoppingCartComponent, SortExpansionPanelComponent, SortByPipe, DisplayCartItemsComponent, CategoriesNavbarComponent, ProductDetailsComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,

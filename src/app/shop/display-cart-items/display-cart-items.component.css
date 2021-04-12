@@ -1,20 +1,3 @@
-nav {
-  background-color: #64dd17;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0;
-  padding-bottom: 0;
-  height: 40px;
-}
-
-nav a {
-  font-size: 16px;
-  text-decoration: none;
-  color: white;
-}
-
 .cart-background-container {
   background-image: url(../../../assets/products-background/1920.svg);
   min-height: 100vh;
@@ -34,7 +17,8 @@ nav a {
 }
 
 .left-side-container img{
-  transform: skew(5deg, 5deg)
+  transform: skew(5deg, 5deg);
+  border-radius: 3px;
 }
 
 .mat-elevation-z8 {
@@ -70,8 +54,8 @@ nav a {
 }
 
 img {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
 .options-buttons {
