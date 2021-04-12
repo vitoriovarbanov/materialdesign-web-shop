@@ -27,7 +27,7 @@
         </div>
         <ng-template [ngIf]='products'>
           <div class="card__img" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{product.index.integerValue}}.jpg');"></div>
-        <a href="#" class="card_link">
+        <a routerLink='{{product.index.integerValue}}' class="card_link">
            <div class="card__img--hover" style="background-image: url('../../../assets/shop-products/food-bevarages-producsts/{{product.index.integerValue}}.jpg');"></div>
          </a>
         </ng-template>
