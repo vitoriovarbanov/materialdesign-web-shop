@@ -33,6 +33,10 @@ nav a {
   width: 50%;
 }
 
+.left-side-container img{
+  transform: skew(5deg, 5deg)
+}
+
 .mat-elevation-z8 {
   min-width: 330px;
   width: 100%;
@@ -113,6 +117,10 @@ img {
   nav a {
     font-size: 16px;
     padding-top: 5px;
+    text-decoration: wavy;
+    text-shadow: #00796b;
+    text-decoration: underline;
+    text-decoration-color: #00796b;
   }
   nav a:hover {
     text-decoration: underline;

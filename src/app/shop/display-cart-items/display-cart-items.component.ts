@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app'
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-display-cart-items',
@@ -11,12 +12,16 @@ import firebase from 'firebase/app'
 export class DisplayCartItemsComponent implements OnInit {
   displayedColumns: string[] = ['products', 'price', 'quantity', 'total'];
   itemsInCart
-  subtotalSum$
+  subtotalSum$ = new BehaviorSubject(0)
 
   constructor(private srvc: ProductsService, private firestoreDb: AngularFirestore) {
     this.itemsInCart = this.srvc.getUserCurrentItemsInCart()
 
-    this.subtotalSum$ = this.srvc.validateCartSubtotalSum()
+    this.srvc.validateCartSubtotalSum().subscribe(data=>
+      {
+        this.subtotalSum$.next(data)
+      })
+
   }
 
   ngOnInit(): void {
@@ -37,6 +42,7 @@ export class DisplayCartItemsComponent implements OnInit {
         console.error("Error writing document: ", error);
       });
     this.itemsInCart = this.srvc.emptyCartFunctionUpdate()
+    this.subtotalSum$.next(0)
   }
 
 }
