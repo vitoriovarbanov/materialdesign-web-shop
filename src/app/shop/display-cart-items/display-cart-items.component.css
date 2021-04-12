@@ -1,4 +1,4 @@
-.mat-toolbar{
+nav {
   background-color: #64dd17;
   display: flex;
   flex-direction: row;
@@ -6,19 +6,21 @@
   align-items: center;
   margin: 0;
   padding-bottom: 0;
+  height: 40px;
 }
 
-.mat-toolbar a{
+nav a {
+  font-size: 16px;
   text-decoration: none;
   color: white;
 }
 
-.cart-background-container{
+.cart-background-container {
   background-image: url(../../../assets/products-background/1920.svg);
   min-height: 100vh;
 }
 
-.flex-content-container{
+.flex-content-container {
   padding-top: 10px;
   display: flex;
   flex-direction: row;
@@ -26,32 +28,33 @@
   margin: 0 auto;
 }
 
-.left-side-container{
+.left-side-container {
   min-width: 330px;
   width: 50%;
 }
 
-.mat-elevation-z8{
+.mat-elevation-z8 {
   min-width: 330px;
   width: 100%;
   background-color: #00796b;
 }
 
-.mat-header-cell{
+.mat-header-cell {
   font-size: 1.2em;
   color: white;
 }
 
-.matColumnDef{
+.matColumnDef {
   background-color: red;
 }
 
-.right-side-container{
+.right-side-container {
+  margin-left: 2px;
   min-width: 330px;
   width: 50%;
 }
 
-.order-summary{
+.order-summary {
   width: 100%;
   height: 300px;
   background-image: url(../../../assets/shop-products/cart-summary/900background.svg);
@@ -62,18 +65,24 @@
   color: white;
 }
 
-img{
+img {
   width: 150px;
   height: 150px;
 }
 
-.options-buttons{
+.options-buttons {
   margin: 15px;
 }
 
-.options-buttons a{
+.options-buttons a {
   text-decoration: none;
   color: black;
+}
+
+@media screen and (max-width: 1000px) {
+  nav a {
+    font-size: 13px;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -83,21 +92,33 @@ img{
     align-items: center;
     width: 100%;
   }
-  .right-side-container{
+  .right-side-container {
     order: -1;
+    margin-left: 0px;
   }
-  .mat-header-cell{
+  .mat-header-cell {
     font-size: 1em;
     padding-left: 3px;
   }
-  img{
+  img {
     width: 125px;
     height: 125px;
   }
+  nav {
+    height: initial;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  nav a {
+    font-size: 16px;
+    padding-top: 5px;
+  }
 }
 
+
 @media screen and (max-width: 350px) {
-  img{
+  img {
     width: 100px;
     height: 100px;
   }

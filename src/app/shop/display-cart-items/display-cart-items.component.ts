@@ -33,7 +33,7 @@ export class DisplayCartItemsComponent implements OnInit {
       .catch((error) => {
         console.error("Error writing document: ", error);
       });
-    this.itemsInCart = this.srvc.getUserCurrentItemsInCart()
+    this.itemsInCart = this.srvc.emptyCartFunctionUpdate()
   }
 
 }

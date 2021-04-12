@@ -38,6 +38,10 @@ export class ProductsService {
     return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).valueChanges()
       .pipe(take(1),
         map((data: ProductsInCart) => {
+          let arr = []
+          if(!data.cartItems){
+            return arr
+          }
           let unique = data.cartItems
             .map(e => e['nameOfItem'])
             .map((e, i, final) => final.indexOf(e) === i && i)
@@ -63,6 +67,10 @@ export class ProductsService {
           })
           return unique
         }))
+  }
+
+  emptyCartFunctionUpdate(){
+    return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).get()
   }
 
   //INCREASING COUNTER & SUM WHEN ADDING NEW ITEMS IN CART
