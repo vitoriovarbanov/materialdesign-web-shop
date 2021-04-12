@@ -39,7 +39,7 @@ export class ProductsService {
       .pipe(take(1),
         map((data: ProductsInCart) => {
           let arr = []
-          if(!data.cartItems){
+          if (!data.cartItems) {
             return arr
           }
           let unique = data.cartItems
@@ -47,7 +47,7 @@ export class ProductsService {
             .map((e, i, final) => final.indexOf(e) === i && i)
             .filter(obj => data.cartItems[obj])
             .map(e => data.cartItems[e]);
-          unique.map(x=>x.quantity=0)
+          unique.map(x => x.quantity = 0)
           let duplicateIds = data.cartItems
             .map(e => e['nameOfItem'])
             .map((e, i, final) => final.indexOf(e) !== i && i)
@@ -55,13 +55,13 @@ export class ProductsService {
             .map(e => data.cartItems[e]["nameOfItem"])
           let duplicate = data.cartItems.filter(obj => duplicateIds.includes(obj.nameOfItem));
           for (const iterator of duplicate) {
-            let findSingleItems = unique.find(x=>x.nameOfItem===iterator.nameOfItem)
-            if(findSingleItems){
+            let findSingleItems = unique.find(x => x.nameOfItem === iterator.nameOfItem)
+            if (findSingleItems) {
               findSingleItems.quantity++
             }
           }
-          unique.map(x=>{
-            if(x.quantity===0){
+          unique.map(x => {
+            if (x.quantity === 0) {
               return x.quantity = 1
             }
           })
@@ -69,8 +69,28 @@ export class ProductsService {
         }))
   }
 
-  emptyCartFunctionUpdate(){
-    return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).get()
+  emptyCartFunctionUpdate() {
+    return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).valueChanges()
+      .pipe(take(1),map((data)=>{
+        if(!data.cartItems){
+          return []
+        }
+      }))
+  }
+
+  validateCartSubtotalSum() {
+    return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).valueChanges()
+      .pipe(take(1),map((data)=>{
+         let subTotal = 0;
+         if(!data.cartItems){
+           subTotal = 0
+         }else{
+           data.cartItems.forEach(el=>{
+             subTotal += el.priceOfItem
+           })
+         }
+         return subTotal
+      }))
   }
 
   //INCREASING COUNTER & SUM WHEN ADDING NEW ITEMS IN CART
@@ -85,7 +105,7 @@ export class ProductsService {
       this.count = 0;
     } else {
       this.count = parseInt(str_count);
-      this.sum = parseInt(str_sum)
+      this.sum = Number(str_sum)
     }
 
     // Add a new document in collection "users"

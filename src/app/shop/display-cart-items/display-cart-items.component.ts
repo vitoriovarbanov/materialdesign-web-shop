@@ -11,9 +11,12 @@ import firebase from 'firebase/app'
 export class DisplayCartItemsComponent implements OnInit {
   displayedColumns: string[] = ['products', 'price', 'quantity', 'total'];
   itemsInCart
+  subtotalSum$
 
   constructor(private srvc: ProductsService, private firestoreDb: AngularFirestore) {
     this.itemsInCart = this.srvc.getUserCurrentItemsInCart()
+
+    this.subtotalSum$ = this.srvc.validateCartSubtotalSum()
   }
 
   ngOnInit(): void {
