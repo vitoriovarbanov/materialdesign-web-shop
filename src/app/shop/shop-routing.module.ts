@@ -9,8 +9,8 @@ import { ProductDetailsResolver } from '../product-details.resolver';
 
 const routes: Routes = [
   { path: '', component: ShopHomeComponent },
-  { path: 'foodbvg', component: FoodBeveragesComponent },
-  { path: 'foodbvg/:id', component: ProductDetailsComponent,  resolve: { productDetails: ProductDetailsResolver } },
+  { path: 'foodbeverages', component: FoodBeveragesComponent },
+  { path: 'foodbeverages/:id', component: ProductDetailsComponent,  resolve: { productDetails: ProductDetailsResolver } },
   { path: 'sports', component: SportsComponent },
   { path: 'sports/:id', component: ProductDetailsComponent, resolve: { productDetails: ProductDetailsResolver } },
   { path: 'cart', component: DisplayCartItemsComponent}
