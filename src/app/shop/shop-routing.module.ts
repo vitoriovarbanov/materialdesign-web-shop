@@ -5,11 +5,12 @@ import { FoodBeveragesComponent } from './food-beverages/food-beverages.componen
 import { SportsComponent } from './sports/sports.component';
 import { DisplayCartItemsComponent } from './display-cart-items/display-cart-items.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsResolver } from '../product-details.resolver';
 
 const routes: Routes = [
   { path: '', component: ShopHomeComponent },
   { path: 'foodbvg', component: FoodBeveragesComponent },
-  { path: 'foodbvg/:id', component: ProductDetailsComponent },
+  { path: 'foodbvg/:id', component: ProductDetailsComponent,  resolve: { productDetails: ProductDetailsResolver } },
   { path: 'sports', component: SportsComponent },
   { path: 'sports/:id', component: ProductDetailsComponent },
   { path: 'cart', component: DisplayCartItemsComponent}

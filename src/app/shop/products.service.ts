@@ -34,6 +34,10 @@ export class ProductsService {
       }))
   }
 
+  getItemDetails(category,productID){
+    console.log(category)
+  }
+
   getUserCurrentItemsInCart() {
     return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).valueChanges()
       .pipe(take(1),

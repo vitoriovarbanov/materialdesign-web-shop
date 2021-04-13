@@ -14,15 +14,24 @@ import { SortByPipe } from './sort-by.pipe';
 import { DisplayCartItemsComponent } from './display-cart-items/display-cart-items.component';
 import { CategoriesNavbarComponent } from './categories-navbar/categories-navbar.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsResolver } from '../product-details.resolver';
 
 
 @NgModule({
-  declarations: [ShopHomeComponent, FoodBeveragesComponent, SportsComponent, SafePipe, ShoppingCartComponent, SortExpansionPanelComponent, SortByPipe, DisplayCartItemsComponent, CategoriesNavbarComponent, ProductDetailsComponent],
+  declarations: [ShopHomeComponent,
+    FoodBeveragesComponent,
+    SportsComponent, SafePipe,
+    ShoppingCartComponent,
+    SortExpansionPanelComponent, SortByPipe,
+    DisplayCartItemsComponent,
+    CategoriesNavbarComponent,
+    ProductDetailsComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,
     AngularMaterialModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+  ],
+  providers: [ProductDetailsResolver]
 })
 export class ShopModule { }

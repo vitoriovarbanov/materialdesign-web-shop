@@ -25,7 +25,7 @@ export class ShopHomeComponent implements OnInit {
     { src: "../../../assets/shop-home/categories/13.jpg", alt: 'display-alt-text-here', text: 'Diet', link: '' },
   ]
 
-  constructor( private firestoreDatabase: AngularFirestore, private http: HttpClient) {
+  constructor(private firestoreDatabase: AngularFirestore, private http: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -34,11 +34,15 @@ export class ShopHomeComponent implements OnInit {
 
 
   Repeat() {
-    setTimeout(() => {
-      this.__FunctionSlide();
-      this.Repeat();
-    }, 4000);
+    if (window.location.href === 'http://localhost:4200/shop') {
+      setTimeout(() => {
+        this.__FunctionSlide();
+        this.Repeat();
+
+      }, 2000);
+    }
   }
+
   startIndex = 0;
 
   __FunctionSlide() {

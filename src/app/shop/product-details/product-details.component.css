@@ -1,0 +1,41 @@
+.main-full-width-container{
+  width: 100%;
+  min-height: 93.2vh;
+  background-image: url(../../../assets/shop-products/details-each-product/details1920background.svg);
+  background-position: center center;
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  /* Background image is fixed in the viewport so that it doesn't move when
+   the content's height is greater than the image's height */
+  background-attachment: fixed;
+   /* This is what makes the background image rescale based
+   on the container's size */
+   background-size: cover;
+   /* Set a background color that will be displayed
+   while the background image is loading */
+  /* background-color: #464646;
+  font-size: 16px; */
+}
+
+.product-details-container{
+  border: 1px solid pink;
+  margin-left: 50px;
+  width: 75%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-details-container{
+  height: 50%;
+  width: 98%;
+  border: 1px solid yellowgreen;
+}
+
+
+.bottom-details-container{
+  height: 50%;
+  width: 98%;
+  border: 1px solid rebeccapurple;
+  margin-left: 50px;
+}
