@@ -7,6 +7,7 @@ import firebase from 'firebase/app'
 import { FoodProducts } from './models/FoodProduts';
 import { SportsFitnessProducts } from './models/SportsFitnessProducts';
 import { ProductsInCart } from './models/ProductsInCart';
+import { ProductDetails } from './models/ProductDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -35,9 +36,7 @@ export class ProductsService {
   }
 
   getItemDetails(category,productID){
-    console.log(category)
-    console.log(productID)
-    return this.http.get<FoodProducts>(`https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/${category}`)
+    return this.http.get<ProductDetails>(`https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/${category}`)
       .pipe(map(data => {
         let allItems = data['documents'].map(x => x['fields'])
         let neededItem = allItems.find(x=>Number(x.index.intergerValue = productID));

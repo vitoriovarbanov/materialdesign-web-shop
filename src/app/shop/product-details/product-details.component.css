@@ -15,13 +15,16 @@
    while the background image is loading */
   /* background-color: #464646;
   font-size: 16px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .product-details-container{
-  border: 1px solid pink;
-  margin-left: 50px;
+  /* border: 1px solid pink; */
   width: 75%;
-  height: 600px;
+  min-width: 970px;
+  margin-left: 50px;
   display: flex;
   flex-direction: column;
 }
@@ -29,13 +32,119 @@
 .top-details-container{
   height: 50%;
   width: 98%;
-  border: 1px solid yellowgreen;
+  min-width: 900px;
+  /* border: 1px solid yellowgreen; */
+  display: flex;
 }
 
+.image-box{
+  width: 33%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.image-box img{
+  max-height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.details-box{
+  padding-left: 10px;
+  width: 67%;
+  color: white;
+  /* border: 1px solid red; */
+}
 
 .bottom-details-container{
   height: 50%;
   width: 98%;
+  min-width: 900px;
   border: 1px solid rebeccapurple;
   margin-left: 50px;
 }
+
+@media screen and (max-width: 1100px){
+  .product-details-container{
+    min-width: 770px;
+  }
+  .top-details-container{
+    min-width: 700px;
+  }
+  .image-box{
+    width: 280px;
+  }
+  .image-box img{
+    width: 280px;
+  }
+  .bottom-details-container{
+    min-width: 770px;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .product-details-container{
+    min-width: 570px;
+  }
+  .top-details-container{
+    min-width: 500px;
+  }
+  .bottom-details-container{
+    min-width: 570px;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .product-details-container{
+    min-width: 570px;
+    margin-left: 20px;
+  }
+  .top-details-container{
+    min-width: 500px;
+  }
+  .bottom-details-container{
+    min-width: 570px;
+    margin-left: 0;
+  }
+  .details-box{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .product-details-container{
+    min-width: 370px;
+    margin-left: 20px;
+  }
+  .top-details-container{
+    flex-direction: column;
+    min-width: 300px;
+  }
+  .bottom-details-container{
+    min-width: 370px;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 420px){
+  .product-details-container{
+    min-width: 300px;
+    margin-left: 5px;
+  }
+  .top-details-container{
+    flex-direction: column;
+    min-width: 300px;
+  }
+  .image-box{
+    width: 230px;
+  }
+  .image-box img{
+    width: 230px;
+  }
+  .bottom-details-container{
+    min-width: 300px;
+    margin-left: 0;
+  }
+}
+
+
