@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'foodbvg', component: FoodBeveragesComponent },
   { path: 'foodbvg/:id', component: ProductDetailsComponent,  resolve: { productDetails: ProductDetailsResolver } },
   { path: 'sports', component: SportsComponent },
-  { path: 'sports/:id', component: ProductDetailsComponent },
+  { path: 'sports/:id', component: ProductDetailsComponent, resolve: { productDetails: ProductDetailsResolver } },
   { path: 'cart', component: DisplayCartItemsComponent}
 ];
 

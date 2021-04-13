@@ -36,6 +36,14 @@ export class ProductsService {
 
   getItemDetails(category,productID){
     console.log(category)
+    console.log(productID)
+    return this.http.get<FoodProducts>(`https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/${category}`)
+      .pipe(map(data => {
+        let allItems = data['documents'].map(x => x['fields'])
+        let neededItem = allItems.find(x=>Number(x.index.intergerValue = productID));
+        return neededItem
+      }))
+
   }
 
   getUserCurrentItemsInCart() {

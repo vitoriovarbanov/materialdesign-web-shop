@@ -7,10 +7,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-
+  test$
   constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.test$ = this.router.snapshot.data
+    console.log(this.test$)
   }
 
 }

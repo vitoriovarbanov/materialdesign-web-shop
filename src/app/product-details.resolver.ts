@@ -13,9 +13,8 @@ export class ProductDetailsResolver implements Resolve<any> {
   constructor(private productSrvc: ProductsService ){}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-      console.log(route.params)
       const id = route.params['id']
-      const category = 'foodbvg'
+      const category = route.url[0].path
       return this.productSrvc.getItemDetails(category,id)
     }
 }
