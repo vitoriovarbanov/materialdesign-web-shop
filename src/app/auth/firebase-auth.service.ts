@@ -39,7 +39,7 @@ export class FirebaseAuthService {
             this.signedIn$.next(true)
             this.srvc.getUserCurrentItemsInCart()
               .subscribe(data => {
-                console.log(data)
+                /* console.log(data) */
                 let cartItems = 0;
                 let cartSum = 0;
                 data.forEach(el => {

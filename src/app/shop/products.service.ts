@@ -36,13 +36,33 @@ export class ProductsService {
   }
 
   getItemDetails(category,productID){
+    /* let result;
+    const firestore = firebase.firestore();
+    const col = firestore.collection(category)
+    console.log(col)
+    const query = col.where('index','==',Number(productID));
+    query.get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+         result = doc.data()
+         console.log(result)
+          return result
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    }); */
     return this.http.get<ProductDetails>(`https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/${category}`)
       .pipe(map(data => {
         let allItems = data['documents'].map(x => x['fields'])
-        let neededItem = allItems.find(x=>Number(x.index.intergerValue = productID));
+        console.log(allItems)
+        console.log(productID)
+        let neededItem = allItems.find(x=>x.index.integerValue===productID);
+        console.log(neededItem)
         return neededItem
       }))
-
   }
 
   getUserCurrentItemsInCart() {

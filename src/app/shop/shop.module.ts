@@ -16,6 +16,7 @@ import { CategoriesNavbarComponent } from './categories-navbar/categories-navbar
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductDetailsResolver } from '../product-details.resolver';
 import { NavbarCategoriesProductsComponent } from './product-details/navbar-categories-products/navbar-categories-products.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { NavbarCategoriesProductsComponent } from './product-details/navbar-cate
     ShopRoutingModule,
     AngularMaterialModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ProductDetailsResolver]
 })

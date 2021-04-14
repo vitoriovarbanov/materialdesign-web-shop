@@ -15,6 +15,8 @@ export class ProductDetailsResolver implements Resolve<any> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
       const id = route.params['id']
       const category = route.url[0].path
+      /* console.log(category)
+      console.log(id) */
       return this.productSrvc.getItemDetails(category,id)
     }
 }

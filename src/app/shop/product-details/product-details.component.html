@@ -3,16 +3,16 @@
   <div class="product-details-container">
     <section class="top-details-container">
       <div class="image-box">
-        <img src='../../../assets/shop-products/{{imgCategory}}/{{productDetails.productDetails.index.intergerValue | number}}.jpg'>
+        <img src='../../../assets/shop-products/{{imgCategory}}/{{productDetails.productDetails.index.integerValue | number}}.jpg'>
         <div class="page">
           <div class="page__demo">
             <div class="page__group">
               <div class="rating">
-                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc1" >
-                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc2">
-                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc3">
-                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc4" checked>
-                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc5">
+                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc1" (click)='clickedHere($event)'>
+                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc2" (click)='clickedHere($event)'>
+                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc3" (click)='clickedHere($event)'>
+                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc4" (click)='clickedHere($event)'>
+                <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc5" (click)='clickedHere($event)'>
                 <label for="rc1" class="rating__item">
                   <svg class="rating__star">
                     <use xlink:href="#star"></use>
@@ -66,16 +66,20 @@
     <section class="bottom-details-container">
       <h1 style="text-align: center; color: white;">REVIEWS</h1>
         <div class="reviews-container">
-          <form class="example-form" (ngSubmit)='testSubmit()'>
+          <form class="example-form" [formGroup]='reviewsForm' (ngSubmit)='postProductReview()'>
           <mat-form-field class="example-full-width" style="width: 300px;">
           <mat-label style="font-size: 22px">Leave a comment</mat-label>
-          <textarea style="font-size: 18px;" matInput placeholder="Ex. It makes me feel..." cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="10">
+          <textarea matInput formControlName='comment' style="font-size: 18px;" matInput placeholder="Ex. It makes me feel..." cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="10">
           </textarea>
           </mat-form-field>
           <div class="btn-container">
             <button mat-stroked-button class="submit-review" type="submit">Continue</button>
           </div>
           </form>
+          <section>
+            <span class="material-icons">verified</span><span>John</span><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis numquam eaque ullam, aperiam nemo nobis non deleniti hic vel pariatur est accusamus! Explicabo debitis aliquam laborum, esse ipsam reiciendis. Laborum!</p>
+              <span class="material-icons"> verified</span><span>Michael</span><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fuga dignissimos. Voluptates, laudantium quis. Ab tempora numquam, asperiores nam porro cupiditate officiis! Velit quam eligendi ad fugit animi numquam laudantium?</p>
+          </section>
       </div>
     </section>
   </div>
