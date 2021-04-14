@@ -15,6 +15,7 @@ import { DisplayCartItemsComponent } from './display-cart-items/display-cart-ite
 import { CategoriesNavbarComponent } from './categories-navbar/categories-navbar.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductDetailsResolver } from '../product-details.resolver';
+import { NavbarCategoriesProductsComponent } from './product-details/navbar-categories-products/navbar-categories-products.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProductDetailsResolver } from '../product-details.resolver';
     SortExpansionPanelComponent, SortByPipe,
     DisplayCartItemsComponent,
     CategoriesNavbarComponent,
-    ProductDetailsComponent],
+    ProductDetailsComponent,
+    NavbarCategoriesProductsComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,
