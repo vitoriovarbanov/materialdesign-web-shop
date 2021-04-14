@@ -11,21 +11,17 @@ export class ReviewsService {
 
   constructor(private http: HttpClient, private firestoreDatabase: AngularFirestore) { }
 
-  createPostReviewRequest(category,id){
-    /* return this.http.get('https://firestore.googleapis.com/v1/projects/health-web-shop/databases/(default)/documents/sports')
-      .pipe(map(data => {
-        const arr = data['documents'].map(x => x['fields'])
-        return arr.find(x=>x.index.integerValue=id)
-      })) */
-
+  createPostReviewRequest(category,id,reviewText,rating){
     const firestore = firebase.firestore();
-    const col = firestore.collection('sports')
-    console.log(col)
+    const col = firestore.collection(category)
     const query = col.where('index','==',Number(id));
     query.get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
+          var docRef = this.firestoreDatabase.collection(category).doc(doc.id);
+          docRef.update({
+            reviews: firebase.firestore.FieldValue.arrayUnion({text: reviewText, rating})
+        });
             console.log(doc.id, " => ", doc.data());
         });
     })

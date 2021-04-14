@@ -18,13 +18,11 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private router: ActivatedRoute,private reviewsSrvc: ReviewsService) { }
 
   ngOnInit(): void {
-
     this.productDetails = this.router.snapshot.data
-    console.log(this.router.snapshot.data)
   }
 
   postProductReview(){
-    this.reviewsSrvc.createPostReviewRequest(this.imgCategory,this.router.snapshot.url[1].path)
+    this.reviewsSrvc.createPostReviewRequest(this.imgCategory,this.router.snapshot.url[1].path,this.reviewsForm.value.comment,4)
   }
 
   clickedHere(e){
