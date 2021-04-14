@@ -16,4 +16,7 @@ export class ProductDetailsComponent implements OnInit {
     console.log(this.productDetails)
   }
 
+  testSubmit(){
+    console.log(`ok`)
+  }
 }
