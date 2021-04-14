@@ -47,7 +47,7 @@ export class ProductsService {
 
   getUserCurrentItemsInCart() {
     return this.firestoreDb.doc<ProductsInCart>(`users/${localStorage.getItem('uid')}`).valueChanges()
-      .pipe(take(1),
+      .pipe(
         map((data: ProductsInCart) => {
           let arr = []
           if (!data.cartItems) {
@@ -117,6 +117,7 @@ export class ProductsService {
     } else {
       this.count = parseInt(str_count);
       this.sum = Number(str_sum)
+      console.log(this.sum)
     }
 
     // Add a new document in collection "users"

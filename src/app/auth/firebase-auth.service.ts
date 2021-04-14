@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { take } from 'rxjs/operators';
+import { ProductsService } from '../shop/products.service';
 
 interface User {
   uid: string,
@@ -20,7 +21,7 @@ export class FirebaseAuthService {
   newUser = new BehaviorSubject(true)
 
   constructor(public afAuth: AngularFireAuth,
-    private router: Router, private firestoreDatabase: AngularFirestore) {
+    private router: Router, private firestoreDatabase: AngularFirestore,private srvc: ProductsService) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.firestoreDatabase.doc(`users/${user.uid}`).valueChanges()
@@ -28,14 +29,28 @@ export class FirebaseAuthService {
             this.newUser.next(data['newUser'])
           })
         this.newUser.subscribe(data => {
-          if (data === true){
+          if (data === true) {
             this.signedIn$.next(false)
-          }else{
+          } else {
             localStorage.setItem('photoURL', user.photoURL)
             localStorage.setItem('email', user.email)
             localStorage.setItem('uid', user.uid)
             localStorage.setItem('displayName', user.displayName)
             this.signedIn$.next(true)
+            this.srvc.getUserCurrentItemsInCart()
+              .subscribe(data => {
+                /* console.log(localStorage.getItem('uid'))
+                console.log(data) */
+                let cartItems = 0;
+                let cartSum = 0;
+                data.forEach(el => {
+                  cartItems += el.quantity
+                  cartSum += el.priceOfItem * el.quantity
+                });
+                localStorage.setItem('cartItems', cartItems.toString())
+                localStorage.setItem('cartSum', cartSum.toString())
+                this.srvc.productsInCart$.next(Number(localStorage.getItem('cartItems')))
+              })
           }
         })
         return this.firestoreDatabase.doc(`users/${user.uid}`).valueChanges()

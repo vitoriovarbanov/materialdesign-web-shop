@@ -9,11 +9,12 @@ import { ProductDetails } from '../models/ProductDetails'
 })
 export class ProductDetailsComponent implements OnInit {
   productDetails
+  imgCategory = this.router.snapshot.url[0].path
   constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.productDetails = this.router.snapshot.data
-    console.log(this.productDetails)
   }
 
   testSubmit(){

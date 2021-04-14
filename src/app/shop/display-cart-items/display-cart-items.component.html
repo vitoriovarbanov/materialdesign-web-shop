@@ -8,7 +8,7 @@
               The actual rendered columns are set as a property on the row definition" -->
         <ng-container matColumnDef="products">
           <th mat-header-cell *matHeaderCellDef> Product </th>
-          <td mat-cell *matCellDef="let element"><img src="../../../assets/shop-products/sports-products/150/{{element.productIndex.integerValue | number}}x150.jpg" style="margin-top: 20px;"><p>{{element.nameOfItem}}</p></td>
+          <td mat-cell *matCellDef="let element"><img src="../../../assets/shop-products/sports/150/{{element.productIndex.integerValue | number}}x150.jpg" style="margin-top: 20px;"><p>{{element.nameOfItem}}</p></td>
         </ng-container>
 
         <ng-container matColumnDef="price">
