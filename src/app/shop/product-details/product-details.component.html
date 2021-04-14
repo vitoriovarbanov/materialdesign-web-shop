@@ -69,16 +69,26 @@
           <form class="example-form" [formGroup]='reviewsForm' (ngSubmit)='postProductReview()'>
           <mat-form-field class="example-full-width" style="width: 300px;">
           <mat-label style="font-size: 22px">Leave a comment</mat-label>
-          <textarea matInput formControlName='comment' style="font-size: 18px;" matInput placeholder="Ex. It makes me feel..." cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="10">
+          <textarea matInput formControlName='comment' style="font-size: 18px;" matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="10">
           </textarea>
+          <mat-error *ngIf="reviewsForm.controls.comment.touched && reviewsForm.controls.comment.invalid">
+            <span class="err-msg" *ngIf="reviewsForm.controls.comment.errors.required">This field is mandatory.</span>
+            <span class="err-msg" *ngIf="reviewsForm.controls.comment.errors.pattern">This field is invalid.</span>
+          </mat-error>
           </mat-form-field>
           <div class="btn-container">
             <button mat-stroked-button class="submit-review" type="submit">Continue</button>
           </div>
           </form>
-          <section>
+          <section style="margin-left: 10px;">
             <span class="material-icons">verified</span><span>John</span><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis numquam eaque ullam, aperiam nemo nobis non deleniti hic vel pariatur est accusamus! Explicabo debitis aliquam laborum, esse ipsam reiciendis. Laborum!</p>
-              <span class="material-icons"> verified</span><span>Michael</span><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fuga dignissimos. Voluptates, laudantium quis. Ab tempora numquam, asperiores nam porro cupiditate officiis! Velit quam eligendi ad fugit animi numquam laudantium?</p>
+            <span class="material-icons">verified</span><span>Michael</span><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fuga dignissimos. Voluptates, laudantium quis. Ab tempora numquam, asperiores nam porro cupiditate officiis! Velit quam eligendi ad fugit animi numquam laudantium?</p>
+            <div *ngFor="let item of productDetails.productDetails.reviews.arrayValue.values">
+                <span class="material-icons">verified</span>
+                <span>Michael</span>
+                <p>{{item.mapValue.fields.text.stringValue}}</p>
+            </div>
+
           </section>
       </div>
     </section>

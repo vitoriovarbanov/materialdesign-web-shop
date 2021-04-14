@@ -19,6 +19,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productDetails = this.router.snapshot.data
+    console.log(this.productDetails)
   }
 
   postProductReview(){
