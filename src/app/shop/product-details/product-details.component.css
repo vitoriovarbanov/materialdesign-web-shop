@@ -35,6 +35,7 @@
   min-width: 900px;
   /* border: 1px solid yellowgreen; */
   display: flex;
+  margin-top: 15px;
 }
 
 .image-box {
@@ -76,6 +77,11 @@
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
+}
+
+.commenter-name{
+  font-size: 22px;
+  padding-left: 5px;
 }
 
 @media screen and (max-width: 1100px) {
