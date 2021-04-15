@@ -22,20 +22,22 @@ export class ProductDetailsComponent implements OnInit {
     comment: new FormControl('', [Validators.required]),
   })
   constructor(private router: ActivatedRoute, private reviewsSrvc: ReviewsService,
-    private _snackBar: MatSnackBar) {}
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.productDetails = this.router.snapshot.data
     this.reviewsSrvc.getItemRating(this.imgCategory, this.router.snapshot.url[1].path)
-      .subscribe(data=>console.log(data))
-    /* console.log(this.productDetails)
-    const allr = Array.from(document.getElementsByClassName('rating__control'))
-    for (const el of allr) {
-      if (el.id === this.rating) {
-        el.setAttribute("checked", '');
-      } else {
-      }
-    } */
+      .subscribe(data => {
+        this.rating = data
+        Math.ceil(this.rating)
+        const allr = Array.from(document.getElementsByClassName('rating__control'))
+        for (const el of allr) {
+          let [x, rate] = el.id.split('rc')
+          if (Number(rate) === this.rating) {
+            el.setAttribute("checked", '');
+          }
+        }
+      })
   }
 
   postProductReview() {
@@ -47,11 +49,9 @@ export class ProductDetailsComponent implements OnInit {
     for (const el of allr) {
       if (el.id === e.target.id) {
         el.setAttribute("checked", '');
-      } else {
-        el.setAttribute("checked", "false")
       }
     }
-    this.openSnackBar()
+    /* this.openSnackBar() */
     /* e.target.setAttribute("checked", "checked");
     console.log(e.target) */
   }

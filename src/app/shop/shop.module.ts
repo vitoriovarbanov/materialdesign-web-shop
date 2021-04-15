@@ -17,6 +17,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductDetailsResolver } from '../product-details.resolver';
 import { NavbarCategoriesProductsComponent } from './product-details/navbar-categories-products/navbar-categories-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StarRatingTopComponent } from './product-details/star-rating-top/star-rating-top.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DisplayCartItemsComponent,
     CategoriesNavbarComponent,
     ProductDetailsComponent,
-    NavbarCategoriesProductsComponent],
+    NavbarCategoriesProductsComponent,
+    StarRatingTopComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,
