@@ -33,50 +33,7 @@
             <span class="err-msg" *ngIf="reviewsForm.controls.comment.errors.pattern">This field is invalid.</span>
           </mat-error>
           </mat-form-field>
-         <!--  <div class="page">
-            <div class="page__demo">
-              <div class="page__group">
-                <div class="rating">
-                  <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc1" (click)='clickedHere($event)'>
-                  <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc2" (click)='clickedHere($event)'>
-                  <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc3" (click)='clickedHere($event)'>
-                  <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc4" (click)='clickedHere($event)'>
-                  <input type="radio" name="rating-star" class="rating__control screen-reader" id="rc5" (click)='clickedHere($event)'>
-                  <label for="rc1" class="rating__item">
-                    <svg class="rating__star">
-                      <use xlink:href="#star"></use>
-                    </svg>
-                    <span class="screen-reader">1</span>
-                  </label>
-                  <label for="rc2" class="rating__item">
-                    <svg class="rating__star">
-                      <use xlink:href="#star"></use>
-                    </svg>
-                    <span class="screen-reader">2</span>
-                  </label>
-                  <label for="rc3" class="rating__item">
-                    <svg class="rating__star">
-                      <use xlink:href="#star"></use>
-                    </svg>
-                    <span class="screen-reader">3</span>
-                  </label>
-                  <label for="rc4" class="rating__item">
-                    <svg class="rating__star">
-                      <use xlink:href="#star"></use>
-                    </svg>
-                    <span class="screen-reader">4</span>
-                  </label>
-                  <label for="rc5" class="rating__item">
-                    <svg class="rating__star">
-                      <use xlink:href="#star"></use>
-                    </svg>
-                    <span class="screen-reader">5</span>
-                  </label>
-                </div>
-                <span class="page__hint" style="font-size: 18px;">Rating</span>
-              </div>
-            </div>
-          </div> -->
+         <app-star-rating-bottom></app-star-rating-bottom>
           <div class="btn-container">
             <button mat-stroked-button class="submit-review" type="submit">Continue</button>
           </div>

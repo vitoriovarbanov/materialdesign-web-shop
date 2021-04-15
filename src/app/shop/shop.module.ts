@@ -18,6 +18,7 @@ import { ProductDetailsResolver } from '../product-details.resolver';
 import { NavbarCategoriesProductsComponent } from './product-details/navbar-categories-products/navbar-categories-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StarRatingTopComponent } from './product-details/star-rating-top/star-rating-top.component';
+import { StarRatingBottomComponent } from './product-details/star-rating-bottom/star-rating-bottom.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { StarRatingTopComponent } from './product-details/star-rating-top/star-r
     CategoriesNavbarComponent,
     ProductDetailsComponent,
     NavbarCategoriesProductsComponent,
-    StarRatingTopComponent],
+    StarRatingTopComponent,
+    StarRatingBottomComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,

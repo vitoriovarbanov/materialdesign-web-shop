@@ -44,19 +44,6 @@ export class ProductDetailsComponent implements OnInit {
     this.reviewsSrvc.createPostReviewRequest(this.imgCategory, this.router.snapshot.url[1].path, this.reviewsForm.value.comment, 4)
   }
 
-  clickedHere(e) {
-    const allr = Array.from(document.getElementsByClassName('rating__control'))
-    for (const el of allr) {
-      if (el.id === e.target.id) {
-        el.setAttribute("checked", '');
-      }
-    }
-    /* this.openSnackBar() */
-    /* e.target.setAttribute("checked", "checked");
-    console.log(e.target) */
-  }
-
-
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   openSnackBar() {
